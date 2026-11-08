@@ -1,0 +1,11 @@
+{
+  "name": "zstack",
+  "owner": { "name": "zhangfand" },
+  "plugins": [
+    {
+      "name": "zstack",
+      "source": "./",
+      "description": "zhangfan's development flow: rulebooks and skills that hold in any repo."
+    }
+  ]
+}
