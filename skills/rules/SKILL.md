@@ -5,7 +5,9 @@ description: Load the matching zstack rulebook before writing a PR title or desc
 
 # zstack rules
 
-Read the rulebook for the content you are about to write, then write it. A repo's own rules win where the two disagree.
+Read the rulebook for the content you are about to write, then write it.
+
+The repo's own rules win where the two disagree. When the repo has its own rulebook for the same kind of content, in its `CLAUDE.md`, `AGENTS.md` or docs, read that one first, and use the zstack rulebook only for what it leaves open.
 
 | When | Read |
 |---|---|
