@@ -11,6 +11,8 @@ In Claude Code:
 /plugin install zstack@zstack
 ```
 
+Then run `/zstack:setup`. It turns on the Codex side and lists the one step you take by hand: enabling auto-update for the marketplace.
+
 ## Layout
 
 - [`rules/`](rules/README.md): rulebooks, one per kind of content. The `rules` skill points the agent at the right one.
@@ -28,7 +30,19 @@ In Claude Code:
   - `file-issue`, `todos-to-github-project`: turn a description or a todo list into issues.
   - `ddd`: build a shared domain language with a person as the domain expert.
   - `loop-northstar`, `loop-reconcile`: write an ideal-state doc, then file the work that closes the gap to it.
+  - `research-first`: survey and test prior art before building a new workflow, then write it as a skill.
+  - `setup`: install or repair zstack for Claude Code and Codex on this machine.
+- [`hooks/`](hooks/): the SessionStart hook that puts the rulebook index and the precedence rule into every Claude Code session.
+- [`scripts/setup-codex.sh`](scripts/setup-codex.sh): writes the same text into the Codex `AGENTS.md` and links the skills.
 
 ## Using it from a repo
 
-A repo's `CLAUDE.md` keeps only what is specific to that repo, and leans on zstack for the rest. When the repo needs to tighten a rule, it states the override in its own `CLAUDE.md`, which wins.
+zstack is installed per machine, never per repo, so it works in repos you do not own and nothing gets committed.
+
+| Situation | Do this |
+|---|---|
+| Any repo | Nothing. zstack applies. |
+| The repo has its own `CLAUDE.md`, `AGENTS.md`, or rulebooks | Nothing. The repo wins where the two disagree, and its rulebook is read first. |
+| zstack clashes with a repo | Set `"enabledPlugins": {"zstack@zstack": false}` in that repo's `.claude/settings.local.json`. |
+| You want a personal note for one repo | Leave it to the agent's memory. If it has to be an instruction, use `CLAUDE.local.md` hidden through `.git/info/exclude`, and only where the repo has a `CLAUDE.md`, because a `CLAUDE.local.md` stops Claude Code from reading `AGENTS.md`. |
+| A cloud environment | Put step 1 of `/zstack:setup` in the environment's setup script. Cloud sessions do not load the plugins on your machine. |
