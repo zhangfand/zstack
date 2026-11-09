@@ -15,6 +15,7 @@ Three pieces route:
 | Writing or editing a code comment | [comments.md](../rules/comments.md) |
 | Changing code in a way a later consumer depends on | [engineering.md](../rules/engineering.md) |
 | Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](../rules/claude-md.md) |
+| Writing or editing a skill | [skills.md](../rules/skills.md) |
 | Filing a GitHub issue | [issues/README.md](../rules/issues/README.md), then the type's rulebook |
 | Writing a concept, principle, architecture doc, or ADR | [docs/README.md](../rules/docs/README.md), then the family's rulebook |
 | Writing a new rulebook | [rulebooks.md](../rules/rulebooks.md) |

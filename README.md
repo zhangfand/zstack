@@ -34,6 +34,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - [`comments.md`](rules/comments.md): when a code comment exists and what it says.
   - [`engineering.md`](rules/engineering.md): traps that pass every gate.
   - [`claude-md.md`](rules/claude-md.md): the format and admission bar for `CLAUDE.md` files.
+  - [`skills.md`](rules/skills.md): the format and admission bar for skills.
   - [`issues/`](rules/issues/README.md): bug reports, feature requests, task specs.
   - [`docs/`](rules/docs/README.md): concepts, principles, architecture docs, ADRs.
   - [`rulebooks.md`](rules/rulebooks.md): how to write a new rulebook.
