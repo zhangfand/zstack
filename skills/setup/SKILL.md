@@ -18,7 +18,7 @@ zstack lives at user level, so every repo gets it and no repo gets a commit. Cla
 
    For a clone you are editing, add the clone as the marketplace instead (`claude plugin marketplace add <path to clone>`), so edits load at the next session with no version bump. In a container that has no SSH key for GitHub, set `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` first.
 
-2. **Auto-update.** Third-party marketplaces do not auto-update. Tell the user to run `/plugin`, open **Marketplaces**, select `zstack`, and choose **Enable auto-update**. You cannot do this step for them.
+2. **Auto-update.** Third-party marketplaces do not auto-update by default. In `~/.claude/settings.json`, set `"autoUpdate": true` on the `zstack` entry under `extraKnownMarketplaces`, which `marketplace add` wrote. Keep the entry's `source` as it is. Claude Code then pulls new commits in the background after a session starts, and the next session loads them.
 
 3. **Find the zstack root** for Codex. Read `installLocation` for `zstack` in `~/.claude/plugins/known_marketplaces.json`. That directory follows marketplace updates, unlike the versioned plugin cache. Without Claude Code, use a clone of `zhangfand/zstack`.
 

@@ -16,3 +16,5 @@ A Claude Code plugin in three layers. Everything here must hold in any repo.
 ## Traps
 
 **A rule that names one project's paths, commands, or vocabulary breaks in every other repo.** Examples use neutral names. A rule that only one project needs stays in that project.
+
+**A `version` in `plugin.json` freezes every install.** Claude Code updates a plugin only when its version changes. Without the field, the version is the commit SHA, so each push to main reaches installs. Keep it out of `plugin.json` and `marketplace.json`.

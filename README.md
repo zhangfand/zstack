@@ -11,7 +11,7 @@ In Claude Code:
 /plugin install zstack@zstack
 ```
 
-Then run `/zstack:setup`. It turns on the Codex side and lists the one step you take by hand: enabling auto-update for the marketplace.
+Then run `/zstack:setup`. It turns on marketplace auto-update and the Codex side.
 
 ## Layout
 

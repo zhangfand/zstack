@@ -1,6 +1,5 @@
 {
   "name": "zstack",
   "description": "zhangfan's development flow: rulebooks for prose, PRs, comments, skills and CLAUDE.md files, plus skills for PR review and research.",
-  "version": "0.3.1",
   "author": { "name": "zhangfand" }
 }
