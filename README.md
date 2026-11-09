@@ -15,28 +15,28 @@ Then run `/zstack:setup`. It turns on the Codex side and lists the one step you 
 
 ## Layout
 
-zstack has three layers. The router dispatches, skills document workflows, and principles hold judgments.
+zstack has three layers. The router dispatches, skills document workflows, and rules hold judgments.
 
 - [`router/`](router/README.md): what to load for a task.
   - [`README.md`](router/README.md): the table from kind of content to rulebook, and the precedence rule.
   - [`bootstrap.sh`](router/bootstrap.sh): prints the table into every session. The SessionStart hook in [`hooks/`](hooks/) runs it, and [`scripts/setup-codex.sh`](scripts/setup-codex.sh) writes the same text into the Codex `AGENTS.md`.
 - [`skills/`](skills/): procedures the agent runs on some tasks. Each one routes itself through its description.
-  - `principles`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.
+  - `rules`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.
   - `respond-to-review`, `babysit-pr`: drive a PR through review and CI.
   - `file-issue`, `todos-to-github-project`: turn a description or a todo list into issues.
   - `ddd`: build a shared domain language with a person as the domain expert.
   - `loop-northstar`, `loop-reconcile`: write an ideal-state doc, then file the work that closes the gap to it.
   - `research-first`: survey and test prior art before building a new workflow, then write it as a skill.
   - `setup`: install or repair zstack for Claude Code and Codex on this machine.
-- [`principles/`](principles/README.md): rulebooks, one per kind of content.
-  - [`writing.md`](principles/writing.md): prose rules for docs, PR text, issues, and comments.
-  - [`prs.md`](principles/prs.md): PR title and a short PR body.
-  - [`comments.md`](principles/comments.md): when a code comment exists and what it says.
-  - [`engineering.md`](principles/engineering.md): traps that pass every gate.
-  - [`claude-md.md`](principles/claude-md.md): the format and admission bar for `CLAUDE.md` files.
-  - [`issues/`](principles/issues/README.md): bug reports, feature requests, task specs.
-  - [`docs/`](principles/docs/README.md): concepts, principles, architecture docs, ADRs.
-  - [`rulebooks.md`](principles/rulebooks.md): how to write a new rulebook.
+- [`rules/`](rules/README.md): rulebooks, one per kind of content.
+  - [`writing.md`](rules/writing.md): prose rules for docs, PR text, issues, and comments.
+  - [`prs.md`](rules/prs.md): PR title and a short PR body.
+  - [`comments.md`](rules/comments.md): when a code comment exists and what it says.
+  - [`engineering.md`](rules/engineering.md): traps that pass every gate.
+  - [`claude-md.md`](rules/claude-md.md): the format and admission bar for `CLAUDE.md` files.
+  - [`issues/`](rules/issues/README.md): bug reports, feature requests, task specs.
+  - [`docs/`](rules/docs/README.md): concepts, principles, architecture docs, ADRs.
+  - [`rulebooks.md`](rules/rulebooks.md): how to write a new rulebook.
 
 ## Using it from a repo
 

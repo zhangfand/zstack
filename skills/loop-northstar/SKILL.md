@@ -12,7 +12,7 @@ This is the interactive half of the reconciliation loop. The autonomous half (`l
 
 ## The ideal-state doc
 
-The doc lives in `docs/northstars/`, one file per area, named for the area it describes. It describes the ideal present — what should be true. Never how to get there, and never what used to be. Prose follows [writing.md](../../principles/writing.md).
+The doc lives in `docs/northstars/`, one file per area, named for the area it describes. It describes the ideal present — what should be true. Never how to get there, and never what used to be. Prose follows [writing.md](../../rules/writing.md).
 
 The body takes whatever form fits the subject — contract tables, flow descriptions, diagrams, examples — with one required section: **Statements**, a bullet list of checkable claims. Only the Statements section has authority. `loop-reconcile` computes the gap against it, and everything else is illustration.
 
@@ -26,7 +26,7 @@ Admission rules for every statement:
 Content that never enters the doc:
 
 - Milestones. They go to the repository's milestone list and die there.
-- Rationale. It goes to [an ADR](../../principles/docs/adrs.md).
+- Rationale. It goes to [an ADR](../../rules/docs/adrs.md).
 - Migration policy. It lives in `loop-reconcile`.
 
 ## Milestones

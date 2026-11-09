@@ -1,4 +1,4 @@
-# Principles
+# Rules
 
 The judgments zstack makes, one rulebook per kind of content. Each rulebook fixes the format, the bar content clears to get in, and when content leaves. A rulebook says what good output is and leaves the steps to get there to a [skill](../skills/). [rulebooks.md](rulebooks.md) is the rulebook for writing a rulebook.
 

@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Goal end-state: every remaining todo of the conversation is one task-spec issue, the issues sit in one GitHub project, every dependency is a blocked-by edge on GitHub, and each in-scope issue carries `ready-for-agent`.
 
-The issue format — title, body sections, the `ready-for-agent` bar — is defined in [principles/issues/README.md](../../principles/issues/README.md) and [principles/issues/task-spec.md](../../principles/issues/task-spec.md). Prose in titles and bodies follows [principles/writing.md](../../principles/writing.md). This skill covers what to file, in which order, and with which `gh` calls.
+The issue format — title, body sections, the `ready-for-agent` bar — is defined in [rules/issues/README.md](../../rules/issues/README.md) and [rules/issues/task-spec.md](../../rules/issues/task-spec.md). Prose in titles and bodies follows [rules/writing.md](../../rules/writing.md). This skill covers what to file, in which order, and with which `gh` calls.
 
 ## 1. Harvest
 

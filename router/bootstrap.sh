@@ -12,7 +12,7 @@ fi
 cat <<TEXT
 # zstack
 
-zstack is the user's personal development flow, installed for every repo. Its rulebooks are in $root/principles and its skills in $root/skills.
+zstack is the user's personal development flow, installed for every repo. Its rulebooks are in $root/rules and its skills in $root/skills.
 
 Before writing any content in the table below, read the matching rulebook. That holds for content written in the middle of another task too, such as a code comment inside a code change.
 
