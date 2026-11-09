@@ -46,8 +46,8 @@ The miss this family guards against is over-prescription. A skill that scripts e
 
 **Restatement: link the owner.** When another skill or rulebook owns the rule, name it by path, and do not repeat its content.
 
-> Prefer: "The title and body follow [issues/README.md](issues/README.md)."
-> Over: the issue title shape copied into the skill.
+> Prefer: "The title and body follow [prs.md](prs.md)."
+> Over: the PR title shape copied into the skill.
 
 **Structure: ship the check, drop the prose.** A rule that a script, a lint, or a type could enforce belongs in that check.
 

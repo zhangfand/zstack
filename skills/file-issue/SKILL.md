@@ -7,26 +7,27 @@ disable-model-invocation: true
 
 # File an issue
 
-Goal end-state: one issue on the tracker whose type, title, body sections, and labels follow [rules/issues/README.md](../../rules/issues/README.md) and the rulebook of its type, with every required section filled from evidence.
+Goal end-state: one issue on the tracker whose type, title, body sections, and labels fit the repo's issue format, with every required section filled from evidence.
 
 The description arrives as the skill argument or in the conversation: $ARGUMENTS
 
-The authoring docs own the issue format, and a rule there wins over any wording here. Read the shared rules first, then the rulebook of the type chosen in step 1:
-
-- [issues/README.md](../../rules/issues/README.md) — title shape, the Situation section, the type labels.
-- [issues/bug-report.md](../../rules/issues/bug-report.md)
-- [issues/feature-request.md](../../rules/issues/feature-request.md)
-- [issues/task-spec.md](../../rules/issues/task-spec.md)
+The repo's own issue format wins over any wording here: its issue templates, contributing guide, or docs. Read it first when the repo has one.
 
 Prose in the title and body follows [rules/writing.md](../../rules/writing.md). Situation uses the terms in the repo's `docs/concepts/` when it has one, and a term links to its entry on first use with a full `https://github.com/<owner>/<repo>/blob/main/docs/concepts/<file>.md#<anchor>` URL, because a relative link does not resolve inside an issue body.
 
 ## 1. Classify
 
-Decide the type with the two questions from issues/README.md, in order:
+Decide the type with two questions, in order:
 
 1. Does the system break its own intended behavior? → **bug report**.
 2. Is the change already decided and scoped? → **task spec**.
 3. Otherwise → **feature request**. A pain point with no feature attached, and a feature idea, both file as a feature request.
+
+When the repo has no issue format of its own, each type takes these sections, in order:
+
+- **bug report:** Situation, Symptom, How to reproduce, Initial triage, Suspected root cause, Possible fixes.
+- **feature request:** Situation, Pain, and Possible directions only when the user offered one.
+- **task spec:** Situation, Scope, Acceptance, and a Blocked by line when it depends on other issues.
 
 When the description supports two readings that change the type — a symptom the user may or may not consider intended behavior, or a change the user may or may not have decided — ask which one holds. Carry the question into step 3 rather than asking it alone.
 
@@ -49,20 +50,20 @@ Collect every open question from steps 1 and 2 and ask them in one round, with o
 Questions that earn a slot:
 
 - the type, when step 1 left two readings open.
-- what the user expected to happen, when the bug rulebook's Symptom needs it and the description states only what happened.
-- who pays the pain and where it bit, when the feature rulebook's Pain has no evidence to point to.
-- what stays out, when the task rulebook's Scope has no boundary.
+- what the user expected to happen, when the bug's Symptom needs it and the description states only what happened.
+- who pays the pain and where it bit, when the feature request's Pain has no evidence to point to.
+- what stays out, when the task's Scope has no boundary.
 - the priority of a bug, when the evidence supports two labels.
 
 Skip the round when no question earns a slot. Ask a second round only when an answer opens a gap the first round could not foresee.
 
 ## 4. Draft
 
-1. Write the title in the shape issues/README.md fixes and in the mood the type's rulebook fixes.
-2. Write every required section of the type, in the order its rulebook lists, and only the optional sections the evidence fills. Situation opens the body and names no file, symbol, or line number. Sections after Situation carry the exact strings, paths, and commands.
+1. Write the title as `<area>: <statement>`: the symptom for a bug, the pain for a feature request, the action for a task.
+2. Write every required section of the type, in the order the type lists, and only the optional sections the evidence fills. Situation opens the body and names no file, symbol, or line number. Sections after Situation carry the exact strings, paths, and commands.
 3. For a feature request, write Possible directions only when the user presents a direction in the description or in an answer, and list only the directions the user presented. Otherwise omit the section. A direction the skill would invent on its own stays out of the issue.
 4. Set the labels: the type label, plus exactly one priority label for a bug report, plus `ready-for-agent` for a task spec an agent can implement from the body alone. A feature request never carries `ready-for-agent`.
-5. Check the draft against the type's rulebook once more: every required section present, Possible fixes and Possible directions pick nothing, Suspected root cause states its confidence, every Acceptance item names what proves it, Scope names what stays out.
+5. Check the draft once more: every required section present, Possible fixes and Possible directions pick nothing, Suspected root cause states its confidence, every Acceptance item names what proves it, Scope names what stays out.
 
 ## 5. Approve
 

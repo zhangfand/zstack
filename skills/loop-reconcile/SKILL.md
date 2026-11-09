@@ -66,5 +66,5 @@ A report names the statements it questions. Every other statement the walk cover
 - The chunk that removes the last consumer of a replaced thing also deletes it. Dead code is noise to the next gap computation.
 - When an issue states a fact about the code, it names the file that shows it. The reader verifies by looking, not by searching. This caps nothing — a chunk touches as many files as one reviewable PR allows.
 - File several issues only when the chunks are parallel: disjoint files, no shared contract. Never file a dependency chain — a chained issue is a stored prediction that goes stale.
-- Issues follow [the issue format](../../rules/issues/README.md), attach to the milestone when one is given, and stand alone without the doc.
+- Issues follow the repo's issue format, attach to the milestone when one is given, and stand alone without the doc.
 - Never apply `ready-for-agent`.

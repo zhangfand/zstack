@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Goal end-state: every remaining todo of the conversation is one task-spec issue, the issues sit in one GitHub project, every dependency is a blocked-by edge on GitHub, and each in-scope issue carries `ready-for-agent`.
 
-The issue format — title, body sections, the `ready-for-agent` bar — is defined in [rules/issues/README.md](../../rules/issues/README.md) and [rules/issues/task-spec.md](../../rules/issues/task-spec.md). Prose in titles and bodies follows [rules/writing.md](../../rules/writing.md). This skill covers what to file, in which order, and with which `gh` calls.
+Each issue is a task spec: a Situation, a Scope that names what stays out, and Acceptance items that each name what proves them. The repo's own issue format wins where it has one. Prose in titles and bodies follows [rules/writing.md](../../rules/writing.md). This skill covers what to file, in which order, and with which `gh` calls.
 
 ## 1. Harvest
 
@@ -20,10 +20,10 @@ The issue format — title, body sections, the `ready-for-agent` bar — is defi
 
 1. Name the project after the outcome the set delivers, not after the conversation.
 2. Split the todos into in-scope and out-of-scope. An out-of-scope todo files under its issue type with the type label, stays out of the project, and never carries `ready-for-agent`.
-3. Draft each in-scope issue as a task spec in the issues/task-spec.md format, title included.
+3. Draft each in-scope issue as a task spec, with an imperative title.
 4. Wire the dependencies. Issue X is blocked by issue Y when X cannot start before Y merges. Record each edge as a **Blocked by** line in X's body.
 5. Check the edge graph for cycles. A cycle is a decomposition error — re-split the todos until the graph is acyclic.
-6. Apply the label bar from issues/task-spec.md: every in-scope issue gets `task`, and an issue implementable from its body alone also gets `ready-for-agent`. An issue still waiting on a user decision files without `ready-for-agent`.
+6. Apply the labels: every in-scope issue gets `task`, and an issue implementable from its body alone also gets `ready-for-agent`. An issue still waiting on a user decision files without `ready-for-agent`.
 
 ## 3. Approve
 
