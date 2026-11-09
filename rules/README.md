@@ -9,6 +9,7 @@ Rulebooks an agent reads before producing a kind of content. Each one fixes the 
 | Writing or editing a code comment | [comments.md](comments.md) |
 | Changing code in a way a later consumer depends on | [engineering.md](engineering.md) |
 | Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](claude-md.md) |
+| Writing or editing a skill | [skills.md](skills.md) |
 | Filing a GitHub issue | [issues/README.md](issues/README.md) |
 | Writing a concept, principle, architecture doc, or ADR | [docs/README.md](docs/README.md) |
 | Writing a new rulebook | [rulebooks.md](rulebooks.md) |
