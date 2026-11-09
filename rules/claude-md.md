@@ -6,109 +6,107 @@ The miss this family guards against is bloat. An entry that restates a source of
 
 ## Format
 
-A CLAUDE.md sits at the repo root, or at the root of a directory whose contents share the same guidance. It opens with an H1 naming what it governs: the repo, the package, or the directory path. A topic title fails.
+**A CLAUDE.md is titled by what it governs.** It sits at the repo root, or at the root of a directory whose contents share the same guidance. It opens with an H1 naming what it governs: the repo, the package, or the directory path. A topic title fails.
 
 > Prefer: `# web`, `# docs/ui/`.
 > Over: `# Design System`, `# Documentation Rules`.
 
-Every entry pairs a condition with the action to take under it. The condition comes first, per [writing.md](writing.md#structure).
+**Every entry pairs a condition with an action.** The condition comes first, per [writing.md](writing.md#structure).
 
 > Prefer: "Before opening a PR, read [`prs.md`](prs.md)."
 > Over: "[`prs.md`](prs.md) — the rulebook for the title and every description section."
 
-The body holds at most two sections, in this order: `## Playbook`, `## Traps`. A file may omit either. A file with nothing to say is an empty file, and an empty file is deleted.
+**The body holds at most `## Playbook` then `## Traps`.** A file may omit either. A file with nothing to say is an empty file, and an empty file is deleted.
 
-Before the first section, the file may carry an orientation lead: what this directory is, and where its parts sit. The lead is the one place an entry states a fact rather than pairing a condition with an action, and it enters only when the environment cannot answer it.
+**An orientation lead is allowed when the environment cannot answer it.** Before the first section, the file may carry a lead: what this directory is, and where its parts sit. The lead is the one place an entry states a fact rather than pairing a condition with an action.
 
 > Prefer: a lead naming each package and its role, where the `package.json` files carry no `description`.
 > Over: a lead restating a directory listing.
 
-The root file runs to 80 lines or fewer. Every other file runs to 50 lines or fewer.
+**The root file runs to 80 lines, every other file to 50.**
 
-Only `## Traps` may contain a fenced code block.
+**Only `## Traps` may contain a fenced code block.**
 
-An entry that points at another file links it. No entry uses the `@path` import syntax, which loads the target on every load of this file.
+**Link other files, never import them.** No entry uses the `@path` import syntax, which loads the target on every load of this file.
 
 ### Playbook
 
-A **playbook** entry sends the agent to the doc or the command that handles the condition. Unlike a runbook, which walks one procedure start to finish, a playbook entry states the trigger and the next move, and stops.
+**A playbook entry states the trigger and the next move, then stops.** A **playbook** entry sends the agent to the doc or the command that handles the condition. Unlike a runbook, which walks one procedure start to finish, a playbook entry states the trigger and the next move, and stops.
 
-Each entry is one bullet.
+**Each entry is one bullet.**
 
 ### Traps
 
-A **trap** is a default that survives every gate. Unlike a known issue, which some check reports, a trap leaves typecheck, lint, and the test suite green.
+**A trap is a wrong default that every gate passes.** Unlike a known issue, which some check reports, a trap leaves typecheck, lint, and the test suite green.
 
-Each entry is a paragraph led by a bold sentence naming the wrong default, followed by the correct call. No entry uses a heading.
+**Each trap is a paragraph led by a bold sentence** naming the wrong default, followed by the correct call. No entry uses a heading.
 
 ## Admission
 
-Every entry names the failure it prevents. If the author cannot state what the agent does wrong without the entry, the entry stays out.
+**Every entry names the failure it prevents.** If the author cannot state what the agent does wrong without the entry, the entry stays out.
 
 > Prefer: "Apps render inside a Shadow DOM. A portal that escapes it silently loses the app's styles."
 > Over: "Apps render inside a Shadow DOM."
 
-Four answers reject an entry.
+**Four tests reject an entry.**
 
-An entry fails on **default** when the agent already does it without being told.
+**Default: the agent does it anyway.** Leave out what the agent does without being told.
 
 > Prefer: "All imports use `.js` extensions, even for TypeScript files."
 > Over: "Read the existing code before changing it."
 
-An entry fails on **lookup** when one file or one command holds the answer and the agent looks there on its own. Point at that source instead of copying it.
+**Lookup: point at the source.** When one file or one command holds the answer and the agent looks there on its own, point at that source instead of copying it.
 
 > Prefer: "Root `package.json` scripts delegate to the right workspace. Read it for the full list."
 > Over: a fenced block listing `dev`, `build`, `typecheck`, and `lint`.
 
-An entry fails on **aspiration** when no failure follows from ignoring it.
+**Aspiration: no failure behind it.** Leave out an entry when nothing goes wrong if the agent ignores it.
 
 > Prefer: "Sequence a migration so the break lands last, or behind a switch."
 > Over: "Keep the codebase healthy."
 
-An entry fails on **scope** when it bears on only some of the work in its directory. A procedure that runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`. The file keeps a `Playbook` entry naming the trigger.
+**Scope: it applies to only some of the work.** A procedure that runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`. The file keeps a `Playbook` entry naming the trigger.
 
 > Prefer: "Before building or editing a plugin, read `plugins/authoring/SKILL.md`."
 > Over: the create and scaffold steps written out in `plugins/CLAUDE.md`.
 
-Each section adds its own bar.
-
-A `Playbook` entry enters when the agent, meeting the condition, would otherwise take a different action.
+**A playbook entry must change the next move.** It enters when the agent, meeting the condition, would otherwise take a different action.
 
 > Prefer: "When doing frontend-only work in `packages/web`, use `pnpm start:web:mock`."
 > Over: "`pnpm start:web:mock` runs the dashboard against mock data."
 
-A `Traps` entry enters when typecheck, lint, and the test suite all pass and the code is still wrong. If a gate catches it, fix the gate.
+**A trap must survive every gate.** It enters when typecheck, lint, and the test suite all pass and the code is still wrong. If a gate catches it, fix the gate.
 
 > Prefer: "Floating UI portals into `document.body`, outside the app's shadow root, where it silently drops the app's styles. Pass `getPortalContainer()` to every `Portal`."
 > Over: "Sort imports before committing."
 
-An entry names the failure and the corrective action. It carries no values, utility classes, or token names that a doc already owns — those sit behind the pointer, where one edit updates them.
+**An entry points at values, it does not copy them.** It names the failure and the corrective action, and carries no values, utility classes, or token names that a doc already owns — those sit behind the pointer, where one edit updates them.
 
 > Prefer: "Focus renders invisible when only part of the outline recipe is written. `docs/design-system.md` carries the full set."
 > Over: the same entry with the five focus utilities spelled out in a fenced block.
 
-An entry enters a nested file when it holds in that directory and no file above already states it.
+**A nested file holds only what is new for its directory.** An entry enters a nested file when it holds in that directory and no file above already states it.
 
 > Prefer: a nested SDK file holding only the CLI naming rule.
 > Over: two nested SDK files repeating the release rule the root file already states.
 
 ## Eviction
 
-An entry whose named failure cannot happen leaves.
+**An entry leaves when its failure can no longer happen.**
 
-When a directory's behavior changes, re-run the admission bar on that directory's file. An entry that now fails leaves.
+**Recheck the file when its directory changes.** Re-run the bar on that directory's file. An entry that now fails leaves.
 
-When a file exceeds its line budget, the overflow leaves and the file keeps one `Playbook` entry pointing at it. Content that fails admission but stays true moves rather than disappears, and it moves by kind: a procedure the agent runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`.
+**Overflow moves out, it does not vanish.** When a file exceeds its line budget, the overflow leaves and the file keeps one `Playbook` entry pointing at it. Content that fails admission but stays true moves rather than disappears, and it moves by kind: a procedure the agent runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`.
 
-When the agent ignores an entry across sessions, the file is too long. Cut entries. Emphasis does not recover a rule the file lost in noise.
+**When the agent ignores an entry, cut entries.** The file is too long. Emphasis does not recover a rule the file lost in noise.
 
 ## Intake
 
-A correction that recurs across sessions becomes an entry, or the maintainer rejects it in writing and states the reason. A correction that recurs with neither outcome means the file is dead.
+**A recurring correction gets an answer.** It becomes an entry, or the maintainer rejects it in writing and states the reason. A correction that recurs with neither outcome means the file is dead.
 
-When the agent asks a question an entry already answers, the entry is ambiguous. Rewrite it, or cut it.
+**A question an entry already answers means the entry is ambiguous.** Rewrite it, or cut it.
 
-An entry lands in the file closest to the code it governs.
+**An entry lands in the file closest to the code it governs.**
 
 > Prefer: a rule about `packages/ui` landing in `packages/ui/CLAUDE.md`.
 > Over: the same rule landing in the root file.

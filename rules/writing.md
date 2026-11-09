@@ -4,122 +4,97 @@ These rules apply to docs, PR and issue text, and code comments. They do not app
 
 ## Terminology
 
-Use the industry-standard term when one exists.
+**Use the industry term when one exists.** A coined name for a known thing makes the reader learn a word for nothing.
 
 > Prefer: glossary, runbook, spec, changelog.
 > Over: a coined name for the same thing.
 
-A project-specific term earns admission only with a one-line separation from its nearest industry near-miss. If the line cannot be written, the industry term wins.
+**A project term needs one line that separates it from its nearest industry term.** If the line cannot be written, the industry term wins.
 
-> Prefer: "A *skill* is a runbook loaded into agent context on demand — unlike a runbook, an agent executes it, not a person."
+> Prefer: "A *skill* is a runbook loaded into agent context on demand. Unlike a runbook, an agent executes it, not a person."
 > Over: introducing "skill" with no line separating it from "runbook".
 
 ## Word choice
 
-- One name per thing. Never call the same item by two different terms — pick the canonical name and use it everywhere.
+**One name per thing.** Pick the canonical name and use it everywhere.
 
-  > Prefer: "the daemon" throughout the doc.
-  > Over: "the daemon" in one paragraph and "the host process" in the next, for the same thing.
+> Prefer: "the daemon" throughout the doc.
+> Over: "the daemon" in one paragraph and "the host process" in the next, for the same thing.
 
-- One meaning per word. A word never relies on context to disambiguate between two senses.
+**One meaning per word.** A word never relies on context to tell two senses apart.
 
-  > Prefer: "install" always means the daemon operation, "set up" covers the dev environment.
-  > Over: "install" means the daemon operation in one section and the dev-environment steps in another.
+> Prefer: "install" always means the daemon operation, "set up" covers the dev environment.
+> Over: "install" means the daemon operation in one section and the dev-environment steps in another.
 
-- Name the thing, not a picture of it. A description states what is true, not what it is like.
+**Say what is true, not what it is like.** Where a literal phrase exists, use it instead of a picture, a metaphor, or a flourish.
 
-  > Prefer: "a group has several people on it, and every line any of them sent reads the same way."
-  > Over: "a group conversation has more than two ends, and three people talking are one undifferentiated voice."
+> Prefer: "a parameter worth varying."
+> Over: "a dial worth turning."
 
-- Say what you mean. Where a literal phrase exists, use it instead of a metaphor or a flourish.
+**Use the plain word.** *start* not *begin/commence/initiate*, *use* not *utilize/leverage*, *help* not *facilitate*, *make sure* not *ensure*, *before* not *prior to*, *get* not *obtain/acquire*, *show* not *demonstrate*, *also* not *additionally/furthermore/moreover*. Add a pair whenever a fancier word gets past review.
 
-  > Prefer: "a parameter worth varying."
-  > Over: "a dial worth turning."
+**Cut marketing adjectives.** *seamless*, *robust*, *powerful*, *cutting-edge*, *effortless*, *world-class*, *next-generation*, *revolutionary*.
 
-  > Prefer: "this point still matters."
-  > Over: "this point earns its keep."
-
-- Use the plain, common word over the fancy synonym: *start* not *begin/commence/initiate*, *use* not *utilize/leverage*, *help* not *facilitate*, *make sure* not *ensure*, *before* not *prior to*, *get* not *obtain/acquire*, *show* not *demonstrate*, *also* not *additionally/furthermore/moreover*.
-
-  Add a pair to this list whenever a fancier word gets past review.
-
-- Cut marketing adjectives entirely: *seamless*, *robust*, *powerful*, *cutting-edge*, *effortless*, *world-class*, *next-generation*, *revolutionary*.
-- No history words: *previously*, *no longer*, *used to*, *renamed from*. Docs state what is true now.
+**Write what is true now.** No history words: *previously*, *no longer*, *used to*, *renamed from*.
 
 ## Verbs
 
-- Active voice.
+**Name who does what.** Use active voice and a real verb, not a nominalization.
 
-  > Prefer: "the parser reads the file."
-  > Over: "the file is read by the parser."
+> Prefer: "the parser reads the file", "analyze the log."
+> Over: "the file is read by the parser", "perform an analysis of the log."
 
-- Use a real verb for the action, not a nominalization.
+**Say it directly.** No stacked auxiliaries, no throat-clearing, and no "-ing" main verb where a simple tense works.
 
-    > Prefer: "analyze the log."
-  > Over: "perform an analysis of the log."
-  
-- No stacked auxiliaries or throat-clearing.
-
-    > Prefer: "this improves X."
-  > Over: "it is important to note that this may help to improve X."
-  
-- Avoid an "-ing" main verb when a simple tense will do.
-
-  > Prefer: "the loader validates the manifest."
-  > Over: "the loader is validating the manifest."
+> Prefer: "this improves X", "the loader validates the manifest."
+> Over: "it is important to note that this may help to improve X", "the loader is validating the manifest."
 
 ## Sentences
 
-- Flag any descriptive sentence over 25 words for splitting.
-- No contractions.
-- Keep the articles (*a*, *an*, *the*, *this*, *these*) — no telegraph style.
+**Split a descriptive sentence over 25 words.**
 
-  > Prefer: "the daemon rejects the request."
-  > Over: "daemon rejects request."
+**Write in full sentences.** No contractions, and keep the articles (*a*, *an*, *the*, *this*, *these*).
 
-## Punctuation
+> Prefer: "the daemon rejects the request."
+> Over: "daemon rejects request."
 
-- No semicolons — split into two sentences.
+**No semicolons.** Split into two sentences.
 
 ## Structure
 
-- One topic per paragraph.
+**One topic per paragraph, at most six sentences.**
 
-  > Prefer: one paragraph on admission, a separate paragraph on eviction.
-  > Over: one paragraph covering both.
+**Start with content and stop when it ends.** No preamble, no summary, no closing remarks.
 
-- At most six sentences per paragraph.
-- No preamble, no summary, no closing remarks. The doc starts with content and stops when the content ends.
+> Prefer: opening with the first rule.
+> Over: "This document describes the rules for…" followed by the first rule.
 
-    > Prefer: opening with the first rule.
-  > Over: "This document describes the rules for…" followed by the first rule.
-  
-- Write steps as a numbered list: imperative mood, one action per item.
+**Write steps as a numbered list.** Imperative mood, one action per item.
 
-  > Prefer: "1. Stop the daemon. 2. Delete the cache. 3. Restart the daemon."
-  > Over: "Stop the daemon, then delete the cache and restart it."
+> Prefer: "1. Stop the daemon. 2. Delete the cache. 3. Restart the daemon."
+> Over: "Stop the daemon, then delete the cache and restart it."
 
-- Condition before command. State the condition first, then the action.
+**Put the condition before the command.**
 
-  > Prefer: "If the token is expired, refresh it."
-  > Over: "Refresh the token if it is expired."
+> Prefer: "If the token is expired, refresh it."
+> Over: "Refresh the token if it is expired."
 
-- State a rule without its rationale. If the rationale is not obvious from the rule, keep it.
+**State a rule without its rationale.** Keep the reason only when the rule is not obvious without it.
 
-  > Prefer: "If a concept has a canonical home, link to it instead of re-explaining it."
-  > Over: adding "an inlined explanation duplicates the source of truth and rots when the canonical version changes."
+> Prefer: "If a concept has a canonical home, link to it instead of re-explaining it."
+> Over: adding "an inlined explanation duplicates the source of truth and rots when the canonical version changes."
 
 ## Linking
 
-If a concept has a canonical home, link to it instead of re-explaining it.
+**Link a concept's home instead of re-explaining it.**
 
 > Prefer: "the request goes through the [rate limiter](docs/concepts/limits.md#rate-limiter)."
 > Over: restating what the rate limiter is, then using it.
 
 ## Checking
 
-A project may run [Vale](https://vale.sh) over its docs and comments with these rules. A word list can decide word choice, history words, nominalizations, throat-clearing, contractions, and semicolons. The rest (one name per thing, one meaning per word, the mechanism over a picture of it, the literal phrase over the metaphor, one topic per paragraph) stay with the reader.
+**A word list checks words, a reader checks meaning.** A project may run [Vale](https://vale.sh) over its docs and comments for word choice, history words, nominalizations, throat-clearing, contractions, and semicolons. One name per thing, one meaning per word, literal phrasing, and one topic per paragraph stay with the reader.
 
-Four words on the lists above stay out of a mechanical gate: *begin*, *initiate*, *acquire*, and *robust*. Each carries a technical sense a word list cannot tell from the prose one. Apply them by reading.
+**Keep *begin*, *initiate*, *acquire*, and *robust* out of a mechanical gate.** Each has a technical sense a word list cannot tell from the prose one.
 
 Comments follow the same word lists, with the carve-outs in [comments.md](comments.md).

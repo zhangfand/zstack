@@ -1,10 +1,10 @@
 # Concepts Entries
 
-**Concepts** — a unified set of terms with their contracts — live in the repo's `docs/concepts/`. The family is load-bearing for agentic development. This doc defines the entry format, admission bar, and exit rules. Harvesting fills this mold — do not invent structure per entry. The sibling family, principles, has its own guideline in [principles.md](principles.md).
+**Concepts** — a unified set of terms with their contracts — live in the repo's `docs/concepts/`. The family is load-bearing for agentic development. This doc defines the entry format, the bar for entry, and when an entry leaves. The sibling family, principles, has its own rulebook in [principles.md](principles.md).
 
 ## Format
 
-One entry per term, as a section in the relevant `concepts/` file:
+**One entry per term, in a fixed shape.** Each entry is a section in the relevant `concepts/` file. Harvesting fills this shape, and no entry invents its own:
 
 - **Term** — the section heading. One concept, one name: this is the canonical name. Words other surfaces use for the same concept are listed here as deprecated aliases, and new code and docs use the canonical name. Other docs link here instead of re-defining ([Linking](../writing.md#linking)).
 - **Definition** — one or two sentences, statable without reference to any file, type, or function.
@@ -13,7 +13,7 @@ One entry per term, as a section in the relevant `concepts/` file:
 
 ## Admission
 
-A term earns an entry when all hold:
+**A term earns an entry when it is shared, load-bearing, and distinct.** All three hold:
 
 1. It is used on more than one surface (code, docs, UI copy, agent prompts, conversation).
 2. It carries a contract a diff could silently violate, **or** two people/agents have plausibly meant different things by it.
@@ -21,7 +21,7 @@ A term earns an entry when all hold:
 
 ## Exclusions
 
-Content banned from entries, regardless of the admission bar ([principles entries](principles.md#exclusions) ban the same list):
+**An entry carries no implementation, cache, history, or steps.** This content is banned regardless of the bar ([principles entries](principles.md#exclusions) ban the same list):
 
 - **Implementation pointers** — file paths, function/type names, code mechanisms. Contracts name behavior. The mechanism enforcing it [belongs in code review](README.md#traps), not here.
 - **Environment caches** — restatements of what a lookup already answers: `package.json` scripts, config files, `--help` output, directory layout. The lookup cannot go stale. The restatement can. Link or omit.
@@ -30,10 +30,10 @@ Content banned from entries, regardless of the admission bar ([principles entrie
 
 ## Eviction
 
-The admission bar gates exit as well as entry: an entry that stops clearing it is removed, not kept for safety. An entry dies when no surface still uses the term, or when nothing enforces its contract and its ambiguity is gone. A concept that stops being separable from a neighbor merges into it and survives only as an alias line.
+**An entry that stops clearing the bar leaves.** Nothing stays for safety. An entry dies when no surface still uses the term, or when nothing enforces its contract and its ambiguity is gone. A concept that stops being separable from a neighbor merges into it and survives only as an alias line.
 
-Trimming is part of every pass: any change that adds or edits entries also states what it checked for removal. "Nothing qualifies" is a valid finding. Not checking is not.
+**Every pass checks for removal.** any change that adds or edits entries also states what it checked for removal. "Nothing qualifies" is a valid finding. Not checking is not.
 
 ## Intake
 
-When a review comment or correction recurs, it must exit through one of two doors: it becomes an entry (here if the miss was about what a term means, in [principles](principles.md) if it was about judgment), or it is consciously rejected with a stated reason — it fails an admission bar, or it is implementation detail that belongs in code review. Silent recurrence is the failure mode this rule prevents. A correction made three times with no entry and no rejection means these docs are dead.
+**A recurring correction gets an answer.** It exits through one of two doors: it becomes an entry (here if the miss was about what a term means, in [principles](principles.md) if it was about judgment), or it is consciously rejected with a stated reason — it fails an admission bar, or it is implementation detail that belongs in code review. Silent recurrence is the failure mode this rule prevents. A correction made three times with no entry and no rejection means these docs are dead.

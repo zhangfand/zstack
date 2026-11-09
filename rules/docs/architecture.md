@@ -6,6 +6,8 @@ The bar a rulebook clears comes from [rulebooks.md](../rulebooks.md). Prose rule
 
 ## Format
 
+**An architecture doc owns one surface and states its invariants.** Each doc has these parts:
+
 - **Name** — kebab-case, named for the surface (`channels.md`, `build.md`).
 - **Scope** — the first paragraph states which surface the doc owns and the question it answers.
 
@@ -16,11 +18,11 @@ The bar a rulebook clears comes from [rulebooks.md](../rulebooks.md). Prose rule
 - **Index line** — `index.md` lists every doc in the directory with one line that separates it from every sibling.
 - **Size** — a doc stays under 1,000 words. When it passes that, trim it or split the surface. The cap is a ceiling, not a target: no minimum exists, and a doc that states three invariants in 150 words is complete.
 
-Entity definitions live in [`concepts/`](concepts.md). Rationale lives in [ADRs](adrs.md). Per-change design lives in [PR descriptions](../prs.md). Link there instead of restating ([Linking](../writing.md#linking)).
+**Link, do not restate.** Entity definitions live in [`concepts/`](concepts.md). Rationale lives in [ADRs](adrs.md). Per-change design lives in [PR descriptions](../prs.md). Link there instead of restating ([Linking](../writing.md#linking)).
 
 ## Admission
 
-Two tests gate every sentence:
+**A sentence enters only when it rejects a diff that would otherwise look right.** Two tests gate every sentence:
 
 1. **The local-correctness test.** A sentence must state intent that a violating diff does not reveal: the diff compiles, its tests pass, and it reads correctly in isolation — only the stated rule rejects it. If the code, a type, or a test already exposes the violation, the sentence restates the implementation. The check: name the concrete drift, the plausible diff the sentence exists to reject. If no drift can be named, the sentence does not enter. Doubt rejects.
 
@@ -32,7 +34,7 @@ Two tests gate every sentence:
    > Prefer: "The routing layer cannot observe which external channel a message originated from."
    > Over: "The message hook strips channel metadata before dispatch."
 
-Corollaries at section level:
+**Name only what an invariant needs, once, as built.** At section level:
 
 - A component is named only when an invariant references it.
 
@@ -49,19 +51,19 @@ Corollaries at section level:
   > Prefer: "The daemon rejects uninstalling a first-party app."
   > Over: "The daemon will validate per-app quotas once the quota system lands."
 
-The family admits only constraints *between* components of one surface. A contract a caller can observe from outside the surface belongs on the concept ([concepts](concepts.md)) — the architecture doc links to it and never restates it. The check: before a contract enters here, search the concepts family for an existing owner. Finding one turns the sentence into a link. Finding none, for an observable contract, creates the concept entry, not an architecture sentence.
+**Only constraints between components of one surface belong here.** A contract a caller can observe from outside the surface belongs on the concept ([concepts](concepts.md)) — the architecture doc links to it and never restates it. The check: before a contract enters here, search the concepts family for an existing owner. Finding one turns the sentence into a link. Finding none, for an observable contract, creates the concept entry, not an architecture sentence.
 
 > Prefer: "install is a completion barrier" as a lifecycle contract in the concepts family, linked from the architecture doc.
 > Over: the same contract stated in both files.
 
-A new doc enters the family only when no existing doc owns the surface. The index line is the test: if a line separating the new doc from every sibling cannot be written, the content belongs in the sibling.
+**A new doc needs a surface no other doc owns.** The index line is the test: if a line separating the new doc from every sibling cannot be written, the content belongs in the sibling.
 
 > Prefer: folding artifact-signing contracts into `app-artifact.md`.
 > Over: a new `artifact-signing.md` whose index line restates `app-artifact.md`'s.
 
 ## Exclusions
 
-Content the admission tests already reject, named so tooling can catch it:
+**No file paths and no process steps.** The admission tests already reject them, and they are named here so tooling can catch them:
 
 - **File references** — no source path and no source-file extension such as `.ts` or `.yaml`.
 - **Process steps** — how-to sequences are skills in `.claude/skills/`. These docs carry only what must hold on every diff.
@@ -71,12 +73,12 @@ Content the admission tests already reject, named so tooling can catch it:
 
 ## Eviction
 
-The admission bar gates exit as well as entry: a sentence that stops clearing the local-correctness test leaves, and nothing stays for safety. A doc whose index line stops separating it from a sibling merges into the sibling.
+**A sentence that stops clearing the bar leaves.** Nothing stays for safety. A doc whose index line stops separating it from a sibling merges into the sibling.
 
-Eviction has two dispositions. A sentence that states a caller-observable contract moves to its concept entry in the same change. A sentence with no owner is deleted. When every invariant in a doc relocates or fails, the doc itself is deleted and its index line removed — an empty doc kept for future content fails the built-system rule.
+**An evicted contract moves to its owner, or is deleted.** A sentence that states a caller-observable contract moves to its concept entry in the same change. A sentence with no owner is deleted. When every invariant in a doc relocates or fails, the doc itself is deleted and its index line removed — an empty doc kept for future content fails the built-system rule.
 
-Trimming is part of every pass: any change that adds or edits a doc also states what it checked for removal. "Nothing qualifies" is a valid finding. Not checking is not.
+**Every pass checks for removal.** any change that adds or edits a doc also states what it checked for removal. "Nothing qualifies" is a valid finding. Not checking is not.
 
 ## Intake
 
-When a review correction about a surface recurs, it exits through one of two doors: it becomes an invariant in the owning doc (or a rule here, if the miss was about authoring), or it is rejected in writing with the reason. Silent recurrence means the family is dead.
+**A recurring correction gets an answer.** It exits through one of two doors: it becomes an invariant in the owning doc (or a rule here, if the miss was about authoring), or it is rejected in writing with the reason. Silent recurrence means the family is dead.

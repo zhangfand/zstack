@@ -4,14 +4,14 @@ The diff already carries what changed and where. A PR description carries only w
 
 ## Title
 
-A PR title is a Conventional Commit: `<type>[(<scope>)][!]: <subject>`, with a lower-case type and scope. Allowed types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`. Squash-and-merge makes the title the commit subject on the default branch.
+**The title is a Conventional Commit.** It takes the form `<type>[(<scope>)][!]: <subject>`, with a lower-case type and scope. Allowed types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`. Squash-and-merge makes the title the commit subject on the default branch.
 
 > Prefer: `feat(api): add request timeout error`
 > Over: `Add request timeout error to the API`
 
 ## Body
 
-The body runs to 30 lines or fewer, screenshots excluded. A section with nothing to say is left out, never filled with a placeholder.
+**The body runs to 30 lines or fewer, screenshots excluded.** A section with nothing to say is left out, never filled with a placeholder.
 
 | Section | When | Budget |
 |---|---|---|
@@ -24,33 +24,33 @@ The body runs to 30 lines or fewer, screenshots excluded. A section with nothing
 
 ### Why
 
-Open with the problem: what was missing, broken, or accreted. Not with what changed.
+**Open with the problem, not the change.** Say what was missing, broken, or accreted.
 
 > Prefer: "A crash mid-install left the app half-registered, because two paths could write the lockfile."
 > Over: "Adds `installLock` to `AppManager`, updates `install.ts`, adds a test."
 
 ### Invariants
 
-State each rule as behavior a reader checks against the product without opening the code. An invariant names no file, function, type, or field. A `refactor:` PR is the exception: its contract is the code structure, so it names the modules it moves.
+**State each invariant as behavior a reader can check in the product.** An invariant names no file, function, type, or field. A `refactor:` PR is the exception: its contract is the code structure, so it names the modules it moves.
 
 > Prefer: "Removing one bot never cuts the user off from the others."
 > Over: "Teardown deletes `channel_mappings` only when `connectionsHoldingIn()` is empty."
 
 ### Tradeoffs
 
-Name the alternative and the force that ruled it out. The code keeps no record of a rejected design.
+**Name the alternative and what ruled it out.** The code keeps no record of a rejected design.
 
 ### Verification
 
-A checklist of the behaviors the PR proves: `[x]` for verified, `[ ]` for what remains. Each item is a scenario and its observable outcome. Mark an item "fails without the change" when it does.
+**List the behaviors the PR proves, each as a scenario and its outcome.** It is a checklist: `[x]` for verified, `[ ]` for what remains. Mark an item "fails without the change" when it does.
 
 > Prefer: "- [x] Two bots, remove one: the user still reaches the app through the other. Fails without the change."
 > Over: "- [x] New cases in `connections.test.ts`."
 
-Leave out the checks CI runs on every PR. List a CI job only when the PR changes what it checks.
+**Leave out what CI checks on every PR.** List a CI job only when the PR changes what it checks.
 
-When the PR changes what a user sees, paste one phone screenshot (390×844) and one desktop screenshot (1280×900). Never commit them.
+**When a user would see the change, show it.** Paste one phone screenshot (390×844) and one desktop screenshot (1280×900). Never commit them.
 
 ### Not in this PR
 
-One line per deferral: the deferred thing and a one-clause reason or pointer.
+**One line per deferral.** Name the deferred thing and give a one-clause reason or pointer.
