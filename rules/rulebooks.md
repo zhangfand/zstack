@@ -4,16 +4,22 @@ A **rulebook** says what good output looks like for one kind of content: a PR, a
 
 ## When to write one
 
-Write a rulebook when agents keep getting one kind of content wrong in the same way, and one line in a `CLAUDE.md` does not fix it. The rulebook names that miss in its opening paragraph.
+**Write a rulebook for a repeated miss.** Agents keep getting one kind of content wrong in the same way, and one line in a `CLAUDE.md` does not fix it. The opening paragraph names that miss.
 
-## What goes in
+## Writing a rule
 
-- Open with what the content is for and the miss the rulebook prevents.
-- A rule stays only when it changes what an agent writes. Leave out what the agent does by default, what a source the agent already reads states, and an aspiration with no failure behind it.
-- When a rule takes judgment and the line between pass and fail is not obvious, show one Prefer/Over pair. A plain rule needs no example.
-- Choose headings that fit the content. A rulebook often covers the shape of one entry, what earns a place, and when content is removed, but it uses only the parts that apply.
-- When a script can check a rule, put the rule in the script and link the script.
+- **Open each rule with one short bold sentence that states it.** A reader who reads only the bold sentences gets the whole rulebook. The sentences after it add only what the lead cannot carry: a scope, a condition, an exception.
+- **Distill the rule until it is simple, intuitive, and powerful.** Simple means one idea in plain words. Intuitive means a reader agrees on first read and remembers it. Powerful means it decides cases the rulebook never lists. When a rule needs a list of cases to work, look for the one idea behind them, and write that.
+- **Keep a rule only when it changes what an agent writes.** Leave out what the agent does by default, what a source the agent already reads states, and an aspiration with no failure behind it.
+- **Show an example only where judgment is needed.** When the line between pass and fail is not obvious, add one Prefer/Over pair. A plain rule needs no example.
+- **Let a script check what a script can check.** Put the rule in the script, and link the script.
+- **Choose headings that fit the content.** A rulebook often covers the shape of one entry, what earns a place, and when content is removed, but it uses only the parts that apply.
+
+> Prefer: "**Every comment earns its place.** A comment carries only what the code cannot state."
+> Over: a paragraph listing six kinds of comment to delete, with no sentence that names what they share.
 
 ## Keeping it alive
 
-A correction that recurs becomes a rule, or the maintainer rejects it and states the reason. A rule leaves when the mistake it guards against stops happening. When agents ignore a rule, the rulebook is too long. Cut other rules before adding emphasis.
+- **A recurring correction gets an answer.** It becomes a rule, or the maintainer rejects it and states the reason.
+- **A rule leaves when its mistake stops happening.**
+- **When agents ignore a rule, cut before you emphasize.** The rulebook is too long, so cut other rules first.
