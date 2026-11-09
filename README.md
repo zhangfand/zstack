@@ -23,9 +23,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
 - [`skills/`](skills/): procedures the agent runs on some tasks. Each one routes itself through its description.
   - `rules`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.
   - `respond-to-review`, `babysit-pr`: drive a PR through review and CI.
-  - `file-issue`, `todos-to-github-project`: turn a description or a todo list into issues.
   - `ddd`: build a shared domain language with a person as the domain expert.
-  - `loop-northstar`, `loop-reconcile`: write an ideal-state doc, then file the work that closes the gap to it.
   - `research-first`: survey and test prior art before building a new workflow, then write it as a skill.
   - `setup`: install or repair zstack for Claude Code and Codex on this machine.
 - [`rules/`](rules/README.md): rulebooks, one per kind of content.
