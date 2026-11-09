@@ -7,18 +7,18 @@ disable-model-invocation: true
 
 # File an issue
 
-Goal end-state: one issue on the tracker whose type, title, body sections, and labels follow [rules/issues/README.md](../../rules/issues/README.md) and the rulebook of its type, with every required section filled from evidence.
+Goal end-state: one issue on the tracker whose type, title, body sections, and labels follow [principles/issues/README.md](../../principles/issues/README.md) and the rulebook of its type, with every required section filled from evidence.
 
 The description arrives as the skill argument or in the conversation: $ARGUMENTS
 
 The authoring docs own the issue format, and a rule there wins over any wording here. Read the shared rules first, then the rulebook of the type chosen in step 1:
 
-- [issues/README.md](../../rules/issues/README.md) — title shape, the Situation section, the type labels.
-- [issues/bug-report.md](../../rules/issues/bug-report.md)
-- [issues/feature-request.md](../../rules/issues/feature-request.md)
-- [issues/task-spec.md](../../rules/issues/task-spec.md)
+- [issues/README.md](../../principles/issues/README.md) — title shape, the Situation section, the type labels.
+- [issues/bug-report.md](../../principles/issues/bug-report.md)
+- [issues/feature-request.md](../../principles/issues/feature-request.md)
+- [issues/task-spec.md](../../principles/issues/task-spec.md)
 
-Prose in the title and body follows [rules/writing.md](../../rules/writing.md). Situation uses the terms in the repo's `docs/concepts/` when it has one, and a term links to its entry on first use with a full `https://github.com/<owner>/<repo>/blob/main/docs/concepts/<file>.md#<anchor>` URL, because a relative link does not resolve inside an issue body.
+Prose in the title and body follows [principles/writing.md](../../principles/writing.md). Situation uses the terms in the repo's `docs/concepts/` when it has one, and a term links to its entry on first use with a full `https://github.com/<owner>/<repo>/blob/main/docs/concepts/<file>.md#<anchor>` URL, because a relative link does not resolve inside an issue body.
 
 ## 1. Classify
 

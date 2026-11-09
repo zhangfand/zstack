@@ -5,7 +5,7 @@
 # Usage: setup-codex.sh [zstack root], defaulting to the root above this script.
 set -eu
 root="${1:-$(cd "$(dirname "$0")/.." && pwd)}"
-[ -f "$root/hooks/bootstrap.sh" ] || { echo "setup-codex.sh: no zstack at $root" >&2; exit 1; }
+[ -f "$root/router/bootstrap.sh" ] || { echo "setup-codex.sh: no zstack at $root" >&2; exit 1; }
 
 codex_home="${CODEX_HOME:-$HOME/.codex}"
 # Codex reads AGENTS.override.md instead of AGENTS.md when both exist.
@@ -17,7 +17,7 @@ touch "$agents"
 begin='<!-- zstack:begin -->'
 end='<!-- zstack:end -->'
 block="$(mktemp)"
-{ echo "$begin"; sh "$root/hooks/bootstrap.sh" "$root"; echo "$end"; } > "$block"
+{ echo "$begin"; sh "$root/router/bootstrap.sh" "$root"; echo "$end"; } > "$block"
 rest="$(mktemp)"
 # Keep everything outside the old block, minus trailing blank lines.
 awk -v b="$begin" -v e="$end" '
