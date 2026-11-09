@@ -26,7 +26,7 @@ Admission rules for every statement:
 Content that never enters the doc:
 
 - Milestones. They go to the repository's milestone list and die there.
-- Rationale. It goes to [an ADR](../../rules/docs/adrs.md).
+- Rationale. It goes to an ADR.
 - Migration policy. It lives in `loop-reconcile`.
 
 ## Milestones

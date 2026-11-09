@@ -27,7 +27,7 @@ A **feature request** is a GitHub issue for a pain, gap, or missing capability w
 
 ## Closing
 
-**A feature request closes with a stated decision.** The decision goes in a closing comment. The comment names the task specs it spun out by number, the PR that resolved it, or the reason the pain stays unaddressed. A decision that keeps constraining diffs after the work ships [earns an ADR](../docs/adrs.md).
+**A feature request closes with a stated decision.** The decision goes in a closing comment. The comment names the task specs it spun out by number, the PR that resolved it, or the reason the pain stays unaddressed. A decision that keeps constraining diffs after the work ships earns an ADR.
 
 **A small change can close the request straight from a PR.** A PR closes a feature request directly when the change is small enough that a task spec would restate the PR description. The PR's [Why](../prs.md#why) section then carries the decision. A larger change flows through the task specs the request spins out.
 

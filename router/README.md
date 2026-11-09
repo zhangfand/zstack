@@ -17,7 +17,6 @@ Three pieces route:
 | Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](../rules/claude-md.md) |
 | Writing or editing a skill | [skills.md](../rules/skills.md) |
 | Filing a GitHub issue | [issues/README.md](../rules/issues/README.md), then the type's rulebook |
-| Writing a concept, principle, architecture doc, or ADR | [docs/README.md](../rules/docs/README.md), then the family's rulebook |
 | Writing a new rulebook | [rulebooks.md](../rules/rulebooks.md) |
 
 The repo's own `CLAUDE.md`, `AGENTS.md` and docs take precedence over zstack where they disagree. When the repo has its own rulebook for the same kind of content, read that one first, and use zstack only for what it leaves open.

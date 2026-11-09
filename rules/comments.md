@@ -12,7 +12,7 @@ The miss that earned this rulebook: agent-written diffs kept arriving with comme
 
 ### Module comment
 
-**A module comment links its doc and adds only what is local.** It sits at the top of the file, detached from any declaration — a comment attached to one is a boundary or body comment. When a [concept](docs/concepts.md) or [architecture](docs/architecture.md) doc covers the module's behavior, the comment links to that doc and adds only what is local to the file. It never restates the doc.
+**A module comment links its doc and adds only what is local.** It sits at the top of the file, detached from any declaration — a comment attached to one is a boundary or body comment. When a concept or architecture doc covers the module's behavior, the comment links to that doc and adds only what is local to the file. It never restates the doc.
 
 > Prefer: `// Stripe webhook adapter. Payment contract: docs/architecture/payments.md.`
 > Over: a file header that re-explains payment routing, which payments.md already owns.
@@ -103,4 +103,4 @@ The miss that earned this rulebook: agent-written diffs kept arriving with comme
 
 **A recurring review correction gets an answer.** It either becomes a rule in this file, or the maintainer rejects it in writing and states the reason. Silent recurrence means this file is dead.
 
-**A why repeated at three sites needs one home.** It stops being a comment. Give it one home the sites can point to — the module that owns the behavior, or an [architecture](docs/architecture.md) doc. A [concept](docs/concepts.md) entry or an [ADR](docs/adrs.md) takes it only when it clears that family's admission bar.
+**A why repeated at three sites needs one home.** It stops being a comment. Give it one home the sites can point to — the module that owns the behavior, or an architecture doc. A concept entry or an ADR takes it only when it meets that doc's own bar.
