@@ -4,7 +4,7 @@
 # Usage: bootstrap.sh [zstack root], defaulting to $CLAUDE_PLUGIN_ROOT.
 set -eu
 root="${1:-${CLAUDE_PLUGIN_ROOT:-}}"
-if [ -z "$root" ] || [ ! -f "$root/rules/README.md" ]; then
+if [ -z "$root" ] || [ ! -f "$root/router/README.md" ]; then
   echo "bootstrap.sh: pass the zstack root, or set CLAUDE_PLUGIN_ROOT" >&2
   exit 1
 fi
@@ -17,9 +17,6 @@ zstack is the user's personal development flow, installed for every repo. Its ru
 Before writing any content in the table below, read the matching rulebook. That holds for content written in the middle of another task too, such as a code comment inside a code change.
 
 TEXT
-# The table comes from rules/README.md, so this text never drifts from it.
-grep '^|' "$root/rules/README.md" | sed -E "s#\]\(([^)]*)\)#]($root/rules/\1)#g"
-cat <<'TEXT'
-
-The repo's own CLAUDE.md, AGENTS.md and docs take precedence over zstack where they disagree. When the repo has its own rulebook for the same kind of content, read that one first, and use zstack only for what it leaves open.
-TEXT
+# The table and the precedence rule come from router/README.md, so this text
+# never drifts from it. Links there are relative to router/.
+sed -n '/^| When/,$p' "$root/router/README.md" | sed -E "s#\]\(\.\./#]($root/#g"
