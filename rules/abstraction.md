@@ -4,7 +4,7 @@ An abstraction is a simplified view of one part: it hides a decision and shows o
 
 ## Ownership
 
-**An abstraction owns one decision, and its API speaks that decision's vocabulary.** Name the decision before naming the functions. In code, the vocabulary is the types: each term in the abstraction's language is one type with that term's name.
+**An abstraction owns the decisions it hides, and the vocabulary those decisions are expressed in.** The decisions it owns change for the same reason. Split it when two of them change independently. In code, the vocabulary is the types: each term in the abstraction's language is one type with that term's name.
 
 ## API
 
@@ -21,3 +21,5 @@ An abstraction is a simplified view of one part: it hides a decision and shows o
 
 > Prefer: `type Order = { status: "draft" } | { status: "submitted"; submittedAt: Date }`.
 > Over: `{ status: string; submittedAt?: Date }` with a comment that `submittedAt` is set once the order is submitted.
+
+**Events are part of the API.** An event states a fact the abstraction decided, in its own vocabulary, and carries the same compatibility promise as a method: add fields, and never rename or remove them.

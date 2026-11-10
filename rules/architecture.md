@@ -4,9 +4,7 @@ Architecture is the significant abstractions of a system, shaped by its quality 
 
 ## Ownership
 
-**Each decision has exactly one owner in the system.** When two components each decide part of the same thing, the boundary is in the wrong place, so move it rather than add coordination between them.
-
-**The component that owns the decision also owns the vocabulary the decision is expressed in.** Other components import its types instead of defining their own copy. A second definition of the same terms drifts, and every translation between the two is a place for the decision to change meaning.
+**Each decision has exactly one owner in the system.** When two components each decide part of the same thing, the boundary is in the wrong place, so move it rather than add coordination between them. Other components import the owner's types instead of defining their own copy, because a second copy drifts.
 
 > Prefer: the billing module defines `PlanTier` and decides what each tier allows, and the dashboard imports `PlanTier` to render it.
 > Over: the dashboard keeps its own `"free" | "pro"` strings and maps them to billing's tiers.
@@ -17,7 +15,5 @@ Architecture is the significant abstractions of a system, shaped by its quality 
 
 > Prefer: billing emits `PlanChanged`, and the notifier subscribes to it.
 > Over: billing calls `notifier.sendPlanEmail()` after every change, so billing now knows about email.
-
-**Events are part of the API.** An event states a fact the owner decided, in the owner's vocabulary, and carries the same compatibility promise as a call: add fields, and never rename or remove them.
 
 Changing an API that other components already use follows the migration rule in [engineering.md](engineering.md#traps).
