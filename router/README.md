@@ -13,6 +13,7 @@ Three pieces route:
 | Writing any prose: docs, PR text, issues | [writing.md](../rules/writing.md) |
 | Opening or editing a PR | [prs.md](../rules/prs.md) |
 | Writing or editing a code comment | [comments.md](../rules/comments.md) |
+| Deciding which component owns a decision, a type, or a term | [architecture.md](../rules/architecture.md) |
 | Changing code in a way a later consumer depends on | [engineering.md](../rules/engineering.md) |
 | Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](../rules/claude-md.md) |
 | Writing or editing a skill | [skills.md](../rules/skills.md) |

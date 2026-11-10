@@ -1,6 +1,6 @@
 ---
 name: rules
-description: Load the matching zstack rulebook before writing a PR title or description, a code comment, a CLAUDE.md, a skill, or any other prose, and before a change that breaks an interface other code depends on.
+description: Load the matching zstack rulebook before writing a PR title or description, a code comment, a CLAUDE.md, a skill, or any other prose, before a change that breaks an interface other code depends on, and before deciding which component owns a decision or its types.
 ---
 
 # zstack rules
