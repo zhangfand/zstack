@@ -15,6 +15,13 @@ Rules for drawing a component's responsibility boundary and the API that express
 
 **An API reveals the decision's result, not how the component reached it.** Every field and method in an API is a promise that callers build on. Expose what callers need to act on, and keep the rest inside, where it can change without them.
 
+**An API offers a few atomic capabilities, and callers compose the rest.** Each method does one thing that no other method or combination of methods can do. Remove a method that only composes others, or that varies another by a flag or a default. A composition earns its own method only when callers cannot compose it safely, such as two writes that must succeed or fail together.
+
+> Prefer: `get(id)` and `list(filter)`, and callers fetch what they need.
+> Over: `get`, `getMany`, `getActive`, and `getOrDefault`, each a thin wrapper over the same read.
+
+**A method's semantics are part of the API, not only its signature.** A caller relies on what the method guarantees: its effect, whether a retry is safe, and what is true when it fails. Name the method for that guarantee. A change to a guarantee breaks callers even when every type stays the same.
+
 **Events are part of the API.** An event states a fact the owner decided, in the owner's vocabulary, and carries the same compatibility promise as a call: add fields, and never rename or remove them.
 
 **Choose a call or an event by which way the dependency should point.** A call makes the caller depend on the component it calls. An event lets the owner announce a change without knowing who listens. Use a call when the caller needs an answer or asks for an action, and an event when the owner should not know its consumers.
