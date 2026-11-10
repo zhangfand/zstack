@@ -13,7 +13,8 @@ Three pieces route:
 | Writing any prose: docs, PR text, issues | [writing.md](../rules/writing.md) |
 | Opening or editing a PR | [prs.md](../rules/prs.md) |
 | Writing or editing a code comment | [comments.md](../rules/comments.md) |
-| Drawing a component boundary, or designing its API or events | [architecture.md](../rules/architecture.md) |
+| Designing an interface: a function, class, module, or service API | [abstraction.md](../rules/abstraction.md) |
+| Drawing a component boundary, or choosing how components depend on and talk to each other | [architecture.md](../rules/architecture.md) |
 | Changing code in a way a later consumer depends on | [engineering.md](../rules/engineering.md) |
 | Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](../rules/claude-md.md) |
 | Writing or editing a skill | [skills.md](../rules/skills.md) |

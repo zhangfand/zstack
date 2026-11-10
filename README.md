@@ -31,7 +31,8 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - [`prs.md`](rules/prs.md): PR title and a short PR body.
   - [`comments.md`](rules/comments.md): when a code comment exists and what it says.
   - [`engineering.md`](rules/engineering.md): traps that pass every gate.
-  - [`architecture.md`](rules/architecture.md): component boundaries and the APIs and events that express them.
+  - [`abstraction.md`](rules/abstraction.md): designing one interface, at any scale.
+  - [`architecture.md`](rules/architecture.md): how components own decisions, depend on, and talk to each other.
   - [`claude-md.md`](rules/claude-md.md): the format and admission bar for `CLAUDE.md` files.
   - [`skills.md`](rules/skills.md): the format and admission bar for skills.
   - [`rulebooks.md`](rules/rulebooks.md): how to write a new rulebook.
