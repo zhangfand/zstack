@@ -6,7 +6,7 @@ Rules for drawing a component's responsibility boundary and the API that express
 
 **A component owns a decision, and no other component makes it again.** Name the decision a component is responsible for before naming its functions. When two components each decide part of the same thing, the boundary is in the wrong place, so move it rather than add coordination between them.
 
-**The component that owns the decision also owns the vocabulary the decision is expressed in.** Other components import its terms and types instead of defining their own copy. A second definition of the same terms drifts, and every translation between the two is a place for the decision to change meaning.
+**The component that owns the decision also owns the vocabulary the decision is expressed in.** In code, the vocabulary is the types: each term in the owner's language is one type with that term's name. Other components import those types instead of defining their own copy. A second definition of the same terms drifts, and every translation between the two is a place for the decision to change meaning.
 
 > Prefer: the billing module defines `PlanTier` and decides what each tier allows, and the dashboard imports `PlanTier` to render it.
 > Over: the dashboard keeps its own `"free" | "pro"` strings and maps them to billing's tiers.
