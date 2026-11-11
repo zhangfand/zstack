@@ -1,6 +1,6 @@
 # Skills
 
-A **skill** is a runbook an agent loads on demand and executes itself. Unlike a CLAUDE.md, which loads on every turn, a skill loads only when its description matches the task or a person types its name. This file defines the format of a skill and the bar its prose clears to enter. Prose rules come from [writing.md](writing.md), and CLAUDE.md files follow [claude-md.md](claude-md.md).
+Prose rules come from [writing.md](writing.md), and CLAUDE.md files follow [claude-md.md](claude-md.md).
 
 The miss this family guards against is over-prescription. A skill that scripts every command and every question spends context on steps the agent takes anyway. A fixed step order also drops or reorders steps that the agent would otherwise get right. The agent follows the script past the point where a better path was available.
 
@@ -22,7 +22,7 @@ The miss this family guards against is over-prescription. A skill that scripts e
 
 ## Description
 
-The description is the only part of a skill the agent reads before it decides to load the skill. It sits in context on every turn, next to every other skill's description. It says two things: when to use the skill, and what the skill does. The usual miss is a description that summarizes the skill and never says when to start it, so the skill does not fire.
+A description says two things: when to use the skill, and what the skill does. The usual miss is a description that summarizes the skill and never says when to start it, so the skill does not fire.
 
 **Write for whoever starts the skill.** A skill the agent starts on its own states the situations that start it. A skill that only a person starts sets `disable-model-invocation: true`, and its description is a one-line summary for the person.
 
