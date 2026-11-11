@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Install or repair zstack on this machine for Claude Code and Codex. Use for /zstack:setup, a new machine, a cloud environment, or after updating zstack. Never writes into a repo.
+description: Install or repair zstack on this machine for Claude Code and Codex. Never writes into a repo.
 disable-model-invocation: true
 ---
 

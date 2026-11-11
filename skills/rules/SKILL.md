@@ -1,6 +1,6 @@
 ---
 name: rules
-description: Load the matching zstack rulebook before writing a PR title or description, a code comment, a CLAUDE.md, a skill, or any other prose, before a change that breaks an interface other code depends on, and before designing an interface, and before drawing a component boundary or choosing how components talk.
+description: Read the zstack rulebook for what you are about to write or design. Use before writing a PR, a comment, a CLAUDE.md, a skill, or other prose, and before designing an interface or a component boundary, or changing code that others depend on.
 ---
 
 # zstack rules

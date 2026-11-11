@@ -1,6 +1,6 @@
 ---
 name: respond-to-review
-description: Address pull request review feedback, make focused changes, and summarize the outcome in one short reply. Use when the user asks to handle, address, or respond to review comments. Not for requesting or performing a code review.
+description: Settle every review comment on a PR without letting it grow past its scope, then close the loop in one reply. Use when the user asks to address review comments.
 ---
 
 # Respond to review feedback

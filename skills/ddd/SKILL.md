@@ -1,6 +1,6 @@
 ---
 name: ddd
-description: Interview a person as the domain expert to build a shared DDD language and model, map where the code diverges, hand off prioritized implementation, then check the merged code against the model.
+description: Build a shared domain language and model with the user as the domain expert, and bring the code in line with it. Use when the user wants to model a domain or settle what its terms mean.
 ---
 
 # Shared language and model, from interview to code
