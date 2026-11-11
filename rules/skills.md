@@ -22,22 +22,23 @@ The miss this family guards against is over-prescription. A skill that scripts e
 
 ## Description
 
-The description is the only part of a skill the agent reads before it decides to load the skill. It sits in context on every turn, next to every other skill's description. The miss here is a description that summarizes the skill and never says when to start it, so the skill does not fire.
+The description is the only part of a skill the agent reads before it decides to load the skill. It sits in context on every turn, next to every other skill's description. It says two things: when to use the skill, and what the skill does. The usual miss is a description that summarizes the skill and never says when to start it, so the skill does not fire.
 
 **Write for whoever starts the skill.** A skill the agent starts on its own states the situations that start it. A skill that only a person starts sets `disable-model-invocation: true`, and its description is a one-line summary for the person.
 
 > Prefer: on a skill the agent starts on its own, "Load before writing a PR description, a code comment, or a GitHub issue."
 > Over: "Rulebooks for content types."
 
-**Say what the skill achieves, then when to use it.** The first clause names the goal or the output, not the steps the body takes to reach it. The "Use when" part follows it.
+### When to use it
 
-> Prefer: "Turn a recurring task into a skill that fits the user, built on how others already solve it. Use when…"
-> Over: "Survey how others solved it, test the candidates, synthesize one, get sign-off, then write it as a skill. Use when…"
+**Spend most of the words on when.** The agent picks a skill by its triggers, and the body is not read until the skill loads.
 
 **Name the situation in the words a task arrives in.** A trigger is a phrase the user says, an artifact the agent is about to touch, or a moment in a task. Include the case where the user never names the skill's topic. A term that only the skill's body defines triggers nothing.
 
 > Prefer: "Use when the user says debug this, or reports something broken, throwing, failing, or slow."
-> Over: "Runs the hypothesis-elimination loop."
+> Over: "Use when running the hypothesis-elimination loop."
+
+**Trigger on what only this skill handles.** A generic trigger such as "writing code" or "reviewing a PR" fires on every task and crowds out the skills that own those tasks.
 
 **One trigger per case.** Synonyms that rename one case count as one trigger. Every word costs context on every turn.
 
@@ -46,7 +47,21 @@ The description is the only part of a skill the agent reads before it decides to
 > Prefer: "Not for requesting or performing a code review."
 > Over: two review skills whose descriptions both say "Use for code review."
 
-**Judge a description by what it fires on.** It is right when it starts the skill on the tasks it should, and stays quiet on its neighbors' tasks.
+### What it does
+
+**Name the outcome, not the steps.** Say what exists or is true when the skill is done. The body owns the steps.
+
+> Prefer: "Turn a recurring task into a skill that fits the user, built on how others already solve it."
+> Over: "Survey how others solved it, test the candidates, synthesize one, get sign-off, then write it as a skill."
+
+**State a limit the agent would not assume.** A skill that reports and changes nothing, or that writes to a shared place, says so.
+
+> Prefer: "Quality audit of the whole repo. One-shot report, changes nothing."
+> Over: "Quality audit of the whole repo."
+
+### Keeping it right
+
+**Edit a description after a misfire.** A skill that stayed quiet when it would have helped, or fired on a neighbor's task, gets a sharper trigger or a named neighbor. A description that fires correctly stays as it is.
 
 ## Admission
 
