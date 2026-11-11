@@ -42,11 +42,6 @@ The description is the only part of a skill the agent reads before it decides to
 
 **One trigger per case.** Synonyms that rename one case count as one trigger. Every word costs context on every turn.
 
-**Name the neighbor where two skills overlap.** Say which skill takes the nearby task, so the agent picks between them.
-
-> Prefer: "Not for requesting or performing a code review."
-> Over: two review skills whose descriptions both say "Use for code review."
-
 ### What it does
 
 **Name the outcome, not the steps.** Say what exists or is true when the skill is done. The body owns the steps.
@@ -61,7 +56,7 @@ The description is the only part of a skill the agent reads before it decides to
 
 ### Keeping it right
 
-**Edit a description after a misfire.** A skill that stayed quiet when it would have helped, or fired on a neighbor's task, gets a sharper trigger or a named neighbor. A description that fires correctly stays as it is.
+**Edit a description after a misfire.** A skill that stayed quiet when it would have helped, or fired on a neighbor's task, gets a sharper trigger. A description that fires correctly stays as it is.
 
 ## Admission
 
