@@ -1,10 +1,21 @@
 # Abstraction
 
-An abstraction is a simplified view of one part: it hides a decision and shows only what callers need. These rules hold at every scale, from a function to a service API. They guard against interfaces that grow thin wrappers and flag variants, leak how the part works, and state their guarantees only in comments. How parts relate to each other is in [architecture.md](architecture.md).
+An abstraction is a simplified view of one part: it hides a decision and shows only what callers need. These rules hold at every scale, from a function to a service API. They guard against logic placed in the nearest file instead of with its owner, and against interfaces that grow thin wrappers and flag variants, leak how the part works, and state their guarantees only in comments. How parts relate to each other is in [architecture.md](architecture.md).
 
 ## Ownership
 
 **An abstraction owns the decisions it hides, and the vocabulary those decisions are expressed in.** The decisions it owns change for the same reason. Split it when two of them change independently. In code, the vocabulary is the types: each term in the abstraction's language is one type with that term's name.
+
+**Name the decision before choosing where its logic goes.** State the logic as one decision, such as "whether a subscription is active", and place it with the abstraction that owns that decision. Logic that takes two decisions to state is two pieces, and each goes to its own owner.
+
+**Logic that decides from an abstraction's state belongs inside that abstraction.** When the logic needs data that the API does not expose, move the logic in instead of exposing the data.
+
+> Prefer: `subscription.isActive()`.
+> Over: a caller that reads `subscription.status` and `subscription.expiresAt` to decide the same thing.
+
+**Logic that every caller must run belongs in the owner, and the rest stays in the caller.** If a new caller could skip the logic and nothing would break, the logic is that caller's composition. If skipping it would be a bug, the owner runs it, so that no caller can forget it.
+
+**A decision with no owner gets a new abstraction, not the nearest file.** A `utils` file is not an owner. A request handler, a UI component, or a scheduled job translates its input and calls an owner, and decides nothing itself.
 
 ## API
 
