@@ -20,15 +20,15 @@ A **design diagram** is the picture a reviewer reads to judge a domain or API de
 
 ## Owner map
 
-**Each box is an owner, and each edge is one API, named in full.** Label an edge with the type and the member it calls, such as `Invoices.issue(order)`, not "issues an invoice" or a bare `issue()`. A full name shows when many edges go through one interface, which is a sign that the interface is too wide.
+**Each box is an owner, and each edge carries the APIs it calls, named in full.** Label an edge with the type and each member it calls, such as `Invoices.issue(order)`, not "issues an invoice" or a bare `issue()`. One caller using several members of one interface gets one edge listing them all. A long list on one edge, or many edges into one interface, means the interface is too wide. Draw the link from a port to the adapter that implements it as a dashed edge, so a journey runs through to the adapter.
 
 **Every call that crosses a boundary has an edge, and every edge is a real call.** Walk the code or the proposed API for each edge. A call that the picture misses is a defect in the picture. Draw each edge between the two boxes it joins, and route it around every other box.
 
 **Inside a context, draw its layers as bands.** Put callers from outside the context at the top, then the application, the domain, and the infrastructure layers. An edge that crosses a band then shows which layer calls which.
 
-**Label each box with its DDD building block.** Use aggregate, entity, value object, domain service, port, application service, or adapter. A box called "domain files", "helpers", or "rules" names a folder, not a concept.
+**Label each box inside the context with its DDD building block.** Use aggregate, entity, value object, domain service, port, application service, or adapter. A box called "domain files", "helpers", or "rules" names a folder, not a concept. A box outside the context is labelled with the context that owns it.
 
-**Every name on the picture is a domain word or a real identifier.** A label you invented for the picture is a question the reviewer has to ask. If no word fits, the design has a missing concept, so raise it as a decision.
+**Every name on the picture is a domain word or a real identifier.** A label you invented for the picture is a question the reviewer has to ask. If no word fits, the design has a missing concept, so raise it as a decision. If a real identifier has no entry in the domain language, keep the identifier on the picture and raise the missing word as a decision.
 
 > Prefer: a box `RefundPolicy`, domain service, with an edge `RefundPolicy.allows(order, reason)`.
 > Over: a box "Rules" holding three unnamed functions, with an edge labelled "checks".

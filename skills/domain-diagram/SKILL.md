@@ -13,13 +13,13 @@ Goal end-state: one page the person can open, with the whole design in one pictu
 
 2. **List the owners and the edges from the source.** For an owner map, write a table of every edge: from, to, the full API name, and whether it reads or writes. Fill it from the proposed API and the code, not from memory. For a dependency graph, take the edges from the repo's import rules or an import scan.
 
-3. **Check every name against the domain language.** Look up each box and edge label in the repo's glossary or domain docs. Name each box's building block. A name that is not in the language goes to the person as a question, and stays off the picture until it is settled.
+3. **Check every name against the domain language.** Look up each box and edge label in the repo's glossary or domain docs. Name each box's building block. A label you made up stays off the picture. A real identifier with no entry in the language stays on it, and the missing word goes to the person as a decision. If the repo has no domain docs for this area, say so in the decisions.
 
 4. **Pick the journeys.** Choose the few that cover each shape of flow. Walk each one through the code or the API, and fix the edge table where the walk finds a call it missed.
 
 5. **Build the page.** Draw the picture as inline SVG with click-to-toggle journeys, in a page the person can open. Put the sentences and the decisions under the picture, and fold the API, the words, the moves, the preserved behaviour, and the PRs into the appendix.
 
-6. **Look at it before you send it.** Render the page in a browser and take a screenshot. Fix labels that overlap, edges that cross a box they do not join, and journeys that do not light up. If no browser is available, say so when you send it.
+6. **Look at it before you send it.** Render the page in a browser, with each journey on in turn, and read the screenshots. Check by script that no label overlaps another label or a box, because the eye misses small overlaps. Fix edges that cross a box they do not join, and journeys that do not light up. If no browser is available, say so when you send it.
 
 7. **Send the link with the decisions.** Lead with what the person has to decide, then link the page. Keep the message short.
 
