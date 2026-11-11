@@ -24,6 +24,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - `rules`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.
   - `respond-to-review`, `babysit-pr`: drive a PR through review and CI.
   - `ddd`: build a shared domain language with a person as the domain expert.
+  - `domain-diagram`: draw a domain or API design as one interactive picture for review.
   - `research-first`: survey and test prior art before building a new workflow, then write it as a skill.
   - `setup`: install or repair zstack for Claude Code and Codex on this machine.
 - [`rules/`](rules/README.md): rulebooks, one per kind of content.
@@ -33,6 +34,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - [`engineering.md`](rules/engineering.md): traps that pass every gate.
   - [`abstraction.md`](rules/abstraction.md): designing one interface, at any scale.
   - [`architecture.md`](rules/architecture.md): how components own decisions, depend on, and talk to each other.
+  - [`design-diagrams.md`](rules/design-diagrams.md): the picture a reviewer reads to judge a design.
   - [`claude-md.md`](rules/claude-md.md): the format and admission bar for `CLAUDE.md` files.
   - [`skills.md`](rules/skills.md): the format and admission bar for skills.
   - [`rulebooks.md`](rules/rulebooks.md): how to write a new rulebook.
