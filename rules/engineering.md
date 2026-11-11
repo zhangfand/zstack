@@ -10,4 +10,4 @@ Rules for changing code that hold in any repo. Each one guards against a change 
 
 **Type checks and tests verify code correctness, not feature correctness.** For a change a user can see, also run the feature: open it in a browser, call the endpoint, or run the CLI, and confirm the behavior the change set out to produce.
 
-**A comment, doc, or rule that a change falsifies leaves in that change.** A follow-up never comes. See [comments.md](comments.md#eviction).
+**A comment, doc, or rule that a change falsifies leaves in that change.** A follow-up never comes. See [comments.md](comments.md#when-to-cut).

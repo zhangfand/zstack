@@ -58,7 +58,7 @@ A description says two things: when to use the skill, and what the skill does. T
 
 **Edit a description after a misfire.** A skill that stayed quiet when it would have helped, or fired on a neighbor's task, gets a sharper trigger. A description that fires correctly stays as it is.
 
-## Admission
+## What to keep
 
 **A line stays only when it changes what the agent does.** When in doubt, delete it. The five tests below name the usual ways a line fails.
 
@@ -97,13 +97,13 @@ A description says two things: when to use the skill, and what the skill does. T
 > Prefer: "the repo's issue rulebook."
 > Over: a path or a label that only one project has.
 
-## Eviction
+## When to cut
 
 **A line leaves when its failure stops happening.**
 
 **A skill that makes the agent worse is too prescriptive.** When the agent follows a skill and takes a worse path than it takes without it, cut the steps that caused it.
 
-## Intake
+## When to add a rule
 
 **A recurring correction gets an answer.** It becomes a line in the skill, or the maintainer rejects it in writing and states the reason.
 
