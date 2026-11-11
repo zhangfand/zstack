@@ -41,7 +41,7 @@ The miss this family guards against is bloat. An entry that restates a source of
 
 **Each trap is a paragraph led by a bold sentence** naming the wrong default, followed by the correct call. No entry uses a heading.
 
-## Admission
+## What to keep
 
 **Every entry names the failure it prevents.** If the author cannot state what the agent does wrong without the entry, the entry stays out.
 
@@ -90,17 +90,17 @@ The miss this family guards against is bloat. An entry that restates a source of
 > Prefer: a nested SDK file holding only the CLI naming rule.
 > Over: two nested SDK files repeating the release rule the root file already states.
 
-## Eviction
+## When to cut
 
 **An entry leaves when its failure can no longer happen.**
 
 **Recheck the file when its directory changes.** Re-run the bar on that directory's file. An entry that now fails leaves.
 
-**Overflow moves out, it does not vanish.** When a file exceeds its line budget, the overflow leaves and the file keeps one `Playbook` entry pointing at it. Content that fails admission but stays true moves rather than disappears, and it moves by kind: a procedure the agent runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`.
+**Overflow moves out, it does not vanish.** When a file exceeds its line budget, the overflow leaves and the file keeps one `Playbook` entry pointing at it. Content that fails "What to keep" but stays true moves rather than disappears, and it moves by kind: a procedure the agent runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`.
 
 **When the agent ignores an entry, cut entries.** The file is too long. Emphasis does not recover a rule the file lost in noise.
 
-## Intake
+## When to add a rule
 
 **A recurring correction gets an answer.** It becomes an entry, or the maintainer rejects it in writing and states the reason. A correction that recurs with neither outcome means the file is dead.
 

@@ -1,6 +1,6 @@
 # Skills
 
-A **skill** is a runbook an agent loads on demand and executes itself. Unlike a CLAUDE.md, which loads on every turn, a skill loads only when its description matches the task or a person types its name. This file defines the format of a skill and the bar its prose clears to enter. Prose rules come from [writing.md](writing.md), and CLAUDE.md files follow [claude-md.md](claude-md.md).
+Prose rules come from [writing.md](writing.md), and CLAUDE.md files follow [claude-md.md](claude-md.md).
 
 The miss this family guards against is over-prescription. A skill that scripts every command and every question spends context on steps the agent takes anyway. A fixed step order also drops or reorders steps that the agent would otherwise get right. The agent follows the script past the point where a better path was available.
 
@@ -9,11 +9,6 @@ The miss this family guards against is over-prescription. A skill that scripts e
 **A skill is a directory with a `SKILL.md`.** Its frontmatter carries `name`, equal to the directory name, and `description`.
 
 **Every link resolves.** Every skill or rulebook a skill names exists.
-
-**The description serves whoever starts the skill.** A skill that only a person starts sets `disable-model-invocation: true`. Its description is a one-line summary for the person. A skill the agent starts on its own states its triggers in the description.
-
-> Prefer: on a skill the agent starts on its own, "Load before writing a PR description, a code comment, or a GitHub issue."
-> Over: "Rulebooks for content types."
 
 **Open with the goal end-state.** The first line says what exists, or is true, when the skill is done.
 
@@ -25,7 +20,45 @@ The miss this family guards against is over-prescription. A skill that scripts e
 > Prefer: the bug-report questions in `references/bug-questions.md`, linked from the step that classifies the issue.
 > Over: the questions for every issue type written out in `SKILL.md`.
 
-## Admission
+## Description
+
+A description says two things: when to use the skill, and what the skill does. The usual miss is a description that summarizes the skill and never says when to start it, so the skill does not fire.
+
+**Write for whoever starts the skill.** A skill the agent starts on its own states the situations that start it. A skill that only a person starts sets `disable-model-invocation: true`, and its description is a one-line summary for the person.
+
+> Prefer: on a skill the agent starts on its own, "Load before writing a PR description, a code comment, or a GitHub issue."
+> Over: "Rulebooks for content types."
+
+### When to use it
+
+**Spend most of the words on when.** The agent picks a skill by its triggers, and the body is not read until the skill loads.
+
+**Name the situation in the words a task arrives in.** A trigger is a phrase the user says, an artifact the agent is about to touch, or a moment in a task. Include the case where the user never names the skill's topic. A term that only the skill's body defines triggers nothing.
+
+> Prefer: "Use when the user says debug this, or reports something broken, throwing, failing, or slow."
+> Over: "Use when running the hypothesis-elimination loop."
+
+**Trigger on what only this skill handles.** A generic trigger such as "writing code" or "reviewing a PR" fires on every task and crowds out the skills that own those tasks.
+
+**One trigger per case.** Synonyms that rename one case count as one trigger. Every word costs context on every turn.
+
+### What it does
+
+**Name the outcome, not the steps.** Say what exists or is true when the skill is done. The body owns the steps.
+
+> Prefer: "Turn a recurring task into a skill that fits the user, built on how others already solve it."
+> Over: "Survey how others solved it, test the candidates, synthesize one, get sign-off, then write it as a skill."
+
+**State a limit the agent would not assume.** A skill that reports and changes nothing, or that writes to a shared place, says so.
+
+> Prefer: "Quality audit of the whole repo. One-shot report, changes nothing."
+> Over: "Quality audit of the whole repo."
+
+### Keeping it right
+
+**Edit a description after a misfire.** A skill that stayed quiet when it would have helped, or fired on a neighbor's task, gets a sharper trigger. A description that fires correctly stays as it is.
+
+## What to keep
 
 **A line stays only when it changes what the agent does.** When in doubt, delete it. The five tests below name the usual ways a line fails.
 
@@ -64,13 +97,13 @@ The miss this family guards against is over-prescription. A skill that scripts e
 > Prefer: "the repo's issue rulebook."
 > Over: a path or a label that only one project has.
 
-## Eviction
+## When to cut
 
 **A line leaves when its failure stops happening.**
 
 **A skill that makes the agent worse is too prescriptive.** When the agent follows a skill and takes a worse path than it takes without it, cut the steps that caused it.
 
-## Intake
+## When to add a rule
 
 **A recurring correction gets an answer.** It becomes a line in the skill, or the maintainer rejects it in writing and states the reason.
 

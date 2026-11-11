@@ -2,7 +2,7 @@
 
 A **code comment** is prose inside a source file. The code states what happens. A comment carries only what the code cannot state: the contract a caller relies on, the why behind a non-obvious choice, or the argument that a hard algorithm is correct. The bar this rulebook clears comes from [rulebooks.md](rulebooks.md).
 
-A comment is technical writing, so it follows [writing.md](writing.md) — the same word choice, the same verbs, the same sentence rules — with two carve-outs this file owns. The ban on semicolons and contractions covers docs and not comments. The rule on history words yields to the admission rule below.
+A comment is technical writing, so it follows [writing.md](writing.md) — the same word choice, the same verbs, the same sentence rules — with two carve-outs this file owns. The ban on semicolons and contractions covers docs and not comments. The rule on history words yields to the rules under "What to keep" below.
 
 The miss that earned this rulebook: agent-written diffs kept arriving with comments that restate the line below them or narrate the change that produced them. Review caught each one by hand because the bar lived nowhere.
 
@@ -68,7 +68,7 @@ The miss that earned this rulebook: agent-written diffs kept arriving with comme
 > Prefer: `// The sentinel drops the event when no ChannelAdapter claims it.`
 > Over: `// The triage layer drops the event when no connector claims it.`
 
-## Admission
+## What to keep
 
 **A comment enters only when the code alone would hide something that matters.** It enters when a competent reader of the code alone would miss something true and load-bearing. A comment that restates the code fails.
 
@@ -90,7 +90,7 @@ The miss that earned this rulebook: agent-written diffs kept arriving with comme
 > Prefer: `// Workaround: grammy drops the reply markup on editMessageText — re-send the keyboard instead.`
 > Over: `// added in PR #1234 to fix the retry bug.`
 
-## Eviction
+## When to cut
 
 **A comment a change falsifies leaves in that change.** Not in a follow-up.
 
@@ -99,7 +99,7 @@ The miss that earned this rulebook: agent-written diffs kept arriving with comme
 
 **A comment that fails the bar leaves on sight.** Deleting one needs no issue and no discussion.
 
-## Intake
+## When to add a rule
 
 **A recurring review correction gets an answer.** It either becomes a rule in this file, or the maintainer rejects it in writing and states the reason. Silent recurrence means this file is dead.
 

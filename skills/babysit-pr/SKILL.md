@@ -1,6 +1,6 @@
 ---
 name: babysit-pr
-description: Watch a PR on a self-paced timer and keep it mergeable — answer review feedback with the respond-to-review skill, fix failing CI, and resolve merge conflicts — until it is reviewed clean, green, and conflict-free, or blocked by another PR. Use when the user says "babysit this PR".
+description: Keep a PR mergeable until it is reviewed clean, green, and conflict-free, or blocked by another PR.
 argument-hint: [pr]
 disable-model-invocation: true
 ---

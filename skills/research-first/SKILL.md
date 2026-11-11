@@ -1,6 +1,6 @@
 ---
 name: research-first
-description: Before building a new workflow or skill for a repetitive task, survey how others already solved it, test the candidates against the real tools, synthesize one that fits the user, get sign-off, then write it as a skill. Use when the user wants a new workflow, process, or skill, or asks how others handle a recurring task.
+description: Turn a recurring task into a skill that fits the user, built on how others already solve it. Use when the user wants a new workflow or skill, or asks how others handle a recurring task.
 ---
 
 # Research first, then build the workflow

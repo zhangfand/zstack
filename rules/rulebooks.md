@@ -11,6 +11,7 @@ A **rulebook** says what good output looks like for one kind of content: a PR, a
 - **Open each rule with one short bold sentence that states it.** A reader who reads only the bold sentences gets the whole rulebook. The sentences after it add only what the lead cannot carry: a scope, a condition, an exception.
 - **Distill the rule until it is simple, intuitive, and powerful.** Simple means one idea in plain words. Intuitive means a reader agrees on first read and remembers it. Powerful means it decides cases the rulebook never lists. When a rule needs a list of cases to work, look for the one idea behind them, and write that.
 - **Keep a rule only when it changes what an agent writes.** Leave out what the agent does by default, what a source the agent already reads states, and an aspiration with no failure behind it.
+- **Leave out what the reader already knows.** A term the agent and the reader share, such as skill, PR, or CLAUDE.md, needs no definition. Define only a term the rulebook coins or uses in its own sense.
 - **Show an example only where judgment is needed.** When the line between pass and fail is not obvious, add one Prefer/Over pair. A plain rule needs no example.
 - **Let a script check what a script can check.** Put the rule in the script, and link the script.
 - **Choose headings that fit the content.** A rulebook often covers the shape of one entry, what earns a place, and when content is removed, but it uses only the parts that apply.
