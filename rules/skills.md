@@ -10,11 +10,6 @@ The miss this family guards against is over-prescription. A skill that scripts e
 
 **Every link resolves.** Every skill or rulebook a skill names exists.
 
-**The description serves whoever starts the skill.** A skill that only a person starts sets `disable-model-invocation: true`. Its description is a one-line summary for the person. A skill the agent starts on its own states its triggers in the description.
-
-> Prefer: on a skill the agent starts on its own, "Load before writing a PR description, a code comment, or a GitHub issue."
-> Over: "Rulebooks for content types."
-
 **Open with the goal end-state.** The first line says what exists, or is true, when the skill is done.
 
 > Prefer: "Goal end-state: one issue on the tracker whose sections follow the issue rulebook."
@@ -24,6 +19,34 @@ The miss this family guards against is over-prescription. A skill that scripts e
 
 > Prefer: the bug-report questions in `references/bug-questions.md`, linked from the step that classifies the issue.
 > Over: the questions for every issue type written out in `SKILL.md`.
+
+## Description
+
+The description is the only part of a skill the agent reads before it decides to load the skill. It sits in context on every turn, next to every other skill's description. The miss here is a description that summarizes the skill and never says when to start it, so the skill does not fire.
+
+**Write for whoever starts the skill.** A skill the agent starts on its own states the situations that start it. A skill that only a person starts sets `disable-model-invocation: true`, and its description is a one-line summary for the person.
+
+> Prefer: on a skill the agent starts on its own, "Load before writing a PR description, a code comment, or a GitHub issue."
+> Over: "Rulebooks for content types."
+
+**Say what the skill achieves, then when to use it.** The first clause names the goal or the output, not the steps the body takes to reach it. The "Use when" part follows it.
+
+> Prefer: "Turn a recurring task into a skill that fits the user, built on how others already solve it. Use when…"
+> Over: "Survey how others solved it, test the candidates, synthesize one, get sign-off, then write it as a skill. Use when…"
+
+**Name the situation in the words a task arrives in.** A trigger is a phrase the user says, an artifact the agent is about to touch, or a moment in a task. Include the case where the user never names the skill's topic. A term that only the skill's body defines triggers nothing.
+
+> Prefer: "Use when the user says debug this, or reports something broken, throwing, failing, or slow."
+> Over: "Runs the hypothesis-elimination loop."
+
+**One trigger per case.** Synonyms that rename one case count as one trigger. Every word costs context on every turn.
+
+**Name the neighbor where two skills overlap.** Say which skill takes the nearby task, so the agent picks between them.
+
+> Prefer: "Not for requesting or performing a code review."
+> Over: two review skills whose descriptions both say "Use for code review."
+
+**Judge a description by what it fires on.** It is right when it starts the skill on the tasks it should, and stays quiet on its neighbors' tasks.
 
 ## Admission
 
