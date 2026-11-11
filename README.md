@@ -33,8 +33,8 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - [`engineering.md`](rules/engineering.md): traps that pass every gate.
   - [`abstraction.md`](rules/abstraction.md): designing one interface, at any scale.
   - [`architecture.md`](rules/architecture.md): how components own decisions, depend on, and talk to each other.
-  - [`claude-md.md`](rules/claude-md.md): the format of, and what earns a place in, `CLAUDE.md` files.
-  - [`skills.md`](rules/skills.md): the format of, and what earns a place in, skills.
+  - [`claude-md.md`](rules/claude-md.md): the format of `CLAUDE.md` files and what to keep in them.
+  - [`skills.md`](rules/skills.md): the format of skills and what to keep in them.
   - [`rulebooks.md`](rules/rulebooks.md): how to write a new rulebook.
 
 ## Using it from a repo
