@@ -10,4 +10,6 @@ Rules for changing code that hold in any repo. Each one guards against a change 
 
 **Type checks and tests verify code correctness, not feature correctness.** For a change a user can see, also run the feature: open it in a browser, call the endpoint, or run the CLI, and confirm the behavior the change set out to produce.
 
+**Data that crosses a process boundary is checked again where it is read.** A stored row, a message, a file or a request body was checked by whoever wrote it, but the reader cannot see that check. A later writer, an older version, or a bug can skip it. Parse the data at the reader with the same validator the writer used, shared from one place, and treat a value that fails as absent.
+
 **A comment, doc, or rule that a change falsifies leaves in that change.** A follow-up never comes. See [comments.md](comments.md#when-to-cut).
