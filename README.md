@@ -25,6 +25,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - `respond-to-review`, `babysit-pr`: drive a PR through review and CI.
   - `ddd`: build a shared domain language with a person as the domain expert.
   - `research-first`: survey and test prior art before building a new workflow, then write it as a skill.
+  - `eval-loop`: carry a goal to done through checkable rules, independent builders, and a recorded loop of build and evaluate.
   - `setup`: install or repair zstack for Claude Code and Codex on this machine.
 - [`rules/`](rules/README.md): rulebooks, one per kind of content.
   - [`writing.md`](rules/writing.md): prose rules for docs, PR text, issues, and comments.
