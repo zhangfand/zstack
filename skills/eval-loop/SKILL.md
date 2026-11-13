@@ -32,11 +32,14 @@ The person agrees to the rules before the phases, and to the phases before any b
 
 ## Phases
 
-If one pass cannot meet every rule, split the work into phases.
+If the scope is too large to meet every rule in one pass, split the work into phases.
 
-- Each phase is useful to the person on its own.
-- Each phase lists the rules it meets, and every rule belongs to one phase.
-- Each phase adds at most one capability that does not exist today.
+**A phase is named by the capability the person has once it is done.** One phase enables one capability, and the person can use that capability without the later phases.
+
+> Prefer: "Phase 2: it answers from everything said in the chat."
+> Over: "Phase 2: store every message."
+
+**Each phase lists the rules it meets, and every rule belongs to one phase.**
 
 ## Environment
 
