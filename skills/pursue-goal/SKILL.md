@@ -1,9 +1,9 @@
 ---
-name: eval-loop
-description: Use when the user states a goal too large for one change and asks for rules or criteria that tell when it is reached, asks what environment would let the agent build and validate without them, or asks to keep building and evaluating until a goal is met. Carries the goal to the point where every rule passes, with a record of each evaluation on the way. Long-running. It starts other agent sessions and writes to the user's tracker.
+name: pursue-goal
+description: Use when the user gives a goal that does not translate into a specific task, where what counts as reached is a judgment to agree on with them. Agrees on pass or fail rules with the user, then builds and evaluates until every rule passes, with a record of each evaluation. Long-running. It starts other agent sessions and writes to the user's tracker.
 ---
 
-# Build to a goal through an evaluation loop
+# Pursue a goal until its rules pass
 
 Goal end-state: every rule in the rule set the person approved passes on a committed version of the product, and the trajectory shows each evaluation that led there.
 
