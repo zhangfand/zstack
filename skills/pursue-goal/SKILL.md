@@ -18,15 +18,17 @@ The planner owns the rules, the plan, and the trajectory, and directs the builde
 
 The person agrees to the rules before the phases, and to the phases before any builder starts.
 
+**Bring the person the rules and the phases, and nothing else.** Everything else the planner finds or plans goes in its notes. The one exception is the ask for what only the person can supply.
+
 ## Rules
 
 **Each rule is pass or fail and names its check.** Where judgment would decide the result, the rule carries a number, such as "reports 8 of 10 seeded issues within 24 hours".
 
 **The rule set follows [rulebooks.md](../../rules/rulebooks.md).** Group the rules by the outcomes the goal names, and aim for about ten.
 
-**Read what exists before writing a rule.** Report with the rule set which rules cannot pass today and what is missing.
+**Read what exists before writing a rule.** Note which rules cannot pass today and what is missing.
 
-**List the decisions that belong to the person, each with a recommendation.**
+**Write a decision that belongs to the person into the rule or the phase it changes, as the recommended choice.**
 
 **A rule changes only by the person's decision, and each change makes a new version of the rule set.**
 
@@ -67,7 +69,7 @@ If the person has not said which model the builders run on, ask.
 
 ## State
 
-Keep the plan, the phases, the decisions made, and what waits on the person outside the conversation, in the tracker the person uses or in files. The rule set stays the only source of the rules.
+Keep the plan, the phases, the decisions made, the planner's notes, and what waits on the person outside the conversation, in the tracker the person uses or in files. The rule set stays the only source of the rules.
 
 ## Loop
 
