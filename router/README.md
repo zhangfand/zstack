@@ -17,6 +17,7 @@ Three pieces route:
 | Drawing a component boundary, or choosing how components depend on and talk to each other | [architecture.md](../rules/architecture.md) |
 | Changing code in a way a later consumer depends on, or reading data another process wrote | [engineering.md](../rules/engineering.md) |
 | Writing or changing a test | [testing.md](../rules/testing.md) |
+| Designing how a deployed instance gets a credential or secret | [security.md](../rules/security.md) |
 | Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](../rules/claude-md.md) |
 | Writing or editing a skill | [skills.md](../rules/skills.md) |
 | Writing a new rulebook | [rulebooks.md](../rules/rulebooks.md) |
