@@ -21,6 +21,8 @@ A **rulebook** says what good output looks like for one kind of content: a PR, a
 
 ## Keeping it alive
 
-- **A recurring correction gets an answer.** It becomes a rule, or the maintainer rejects it and states the reason.
+- **A correction seen twice gets an answer.** It becomes a rule, or the maintainer rejects it and states the reason. A correction seen once is not yet a rule.
+- **Fold a new miss into an existing rule before adding one.** When an existing rule already holds the idea, widen its lead or its scope instead.
+- **Propose a cut with every rule you add.** Name a rule the new one makes redundant, or one whose mistake stopped happening. A cut with no loss is a win.
 - **A rule leaves when its mistake stops happening.**
 - **When agents ignore a rule, cut before you emphasize.** The rulebook is too long, so cut other rules first.
