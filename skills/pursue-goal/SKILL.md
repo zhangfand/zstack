@@ -24,6 +24,11 @@ The person agrees to the rules before the phases, and to the phases before any b
 
 **Each rule is pass or fail and names its check.** Where judgment would decide the result, the rule carries a number, such as "reports 8 of 10 seeded issues within 24 hours".
 
+**A check finishes in minutes.** When a rule names a span of time, such as a timeout, a retry window, or an hour offline, the check advances a clock the product lets it set, per [testing.md](../../rules/testing.md), instead of waiting the span out. A part that only real time can prove becomes a scheduled check, and the rule names that part.
+
+> Prefer: "Messages sent while the service is down for an hour are each answered once after restart. Check: stop it for a minute and advance the queue's clock by an hour. Scheduled check: once a day, a real one-hour stop."
+> Over: the same rule checked by a real one-hour stop on every run.
+
 **The rule set follows [rulebooks.md](../../rules/rulebooks.md).** Group the rules by the outcomes the goal names, and aim for about ten.
 
 **Read what exists before writing a rule.** Note which rules cannot pass today and what is missing.
@@ -78,7 +83,9 @@ Keep the plan, the phases, the decisions made, the planner's notes, and what wai
 3. The planner adds the entry to the trajectory and tags each failure with where the fault lies: the product, the verifier, the environment, or the rule.
 4. The planner sends each fix to the builder that owns the fault. A fault in a rule goes to the person.
 
-A phase is done when all of its rules pass. Every later run still checks the rules of the finished phases.
+**A scheduled check runs on its own timer, never in the loop.** It scores the newest committed version, and the trajectory carries its latest result and the commit it ran on.
+
+A phase is done when all of its rules pass, and each of its scheduled checks has passed on that commit or a later one. Every later run still checks the rules of the finished phases.
 
 ## Trajectory
 

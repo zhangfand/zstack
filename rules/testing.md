@@ -12,7 +12,7 @@ These rules guard against tests written to turn the suite green: they mirror the
 > Prefer: `expect(total([10, 5])).toBe(15)`.
 > Over: `expect(total(items)).toBe(items.reduce((sum, i) => sum + i, 0))`.
 
-**Fake only what you do not own.** Replace the network, the clock, or a third-party service, and run your own code for real. A test that mocks your own module tests the mock.
+**Fake only what you do not own.** Replace the network, the clock, or a third-party service, and run your own code for real. A test that mocks your own module tests the mock. Inject the clock, so a test of a timeout, a retry, or an expiry moves time forward instead of waiting for it.
 
 **A test that is hard to write is feedback on the design.** When a test needs unrelated setup or reaches for a private member, the logic sits away from its owner. Move the logic per [abstraction.md](abstraction.md), and the test gets simple.
 
