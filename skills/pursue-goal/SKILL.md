@@ -1,6 +1,6 @@
 ---
 name: pursue-goal
-description: Use when the user gives a goal that does not translate into a specific task, where what counts as reached is a judgment to agree on with them. Agrees on pass or fail rules with the user, then builds and evaluates until every rule passes, with a record of each evaluation. Long-running. It starts other agent sessions and writes to the user's tracker.
+description: Use when the user gives a goal that does not translate into a specific task, where what counts as reached is a judgment to agree on with them. Agrees on pass or fail rules with the user, then builds and evaluates until every rule passes, with a record of each evaluation. Long-running. It runs builders as subagents and writes to the user's tracker.
 ---
 
 # Pursue a goal until its rules pass
@@ -10,7 +10,7 @@ Goal end-state: every rule in the rule set the person approved passes on a commi
 - The **product** is what the goal asks for.
 - The **verifier** is a program that scores the product pass or fail on each rule.
 - The **environment** is everything the product and the verifier need to run without the person.
-- A **builder** is an agent session that builds one of those three.
+- A **builder** is a subagent that builds one of those three.
 - The **trajectory** is the record of how the results change, one entry per iteration of the loop.
 - The **planner** is the agent that runs this skill.
 
@@ -59,6 +59,8 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 **Name each rule the environment cannot check, and say how it is checked instead.**
 
 ## Builders
+
+**The goal runs in one session, the planner's.** Builders, research, verifier runs, and replays run as subagents that return a summary to the planner. A part gets its own session only when it opens its own pull request or needs a decision from the person apart from the goal's.
 
 **The environment, the verifier, and the product each get their own builder.** Each builder owns one folder and changes nothing outside it.
 
