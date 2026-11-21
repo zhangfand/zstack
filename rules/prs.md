@@ -6,8 +6,10 @@ The diff already carries what changed and where. A PR description carries only w
 
 **The title is a Conventional Commit.** It takes the form `<type>[(<scope>)][!]: <subject>`, with a lower-case type and scope. Allowed types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`. Squash-and-merge makes the title the commit subject on the default branch.
 
-> Prefer: `feat(api): add request timeout error`
-> Over: `Add request timeout error to the API`
+**The subject says what a teammate would notice, in words they already use.** Name the feature and what is different now. A fix names the problem it ends. One change only: if the subject needs "and" or ";", name the bigger change. Keep it under about 60 characters.
+
+> Prefer: `fix(chat): line up agent names and action icons with chat bubbles`
+> Over: `fix(chat): put action icons and agent names on the bubble edge`
 
 ## Body
 
