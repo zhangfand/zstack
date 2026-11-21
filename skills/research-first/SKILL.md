@@ -25,7 +25,7 @@ A repetitive task has usually been solved many times already. This skill finds t
 
 5. **Synthesize one recommendation.** Combine the surviving parts into one workflow, split by the situations the user meets, from the most common to the rarest. Give each rejected option one line with the reason.
 
-6. **Get sign-off.** Present a document with the recommendation first, then the test results, the prior-art table, the workflow, the proposed changes, and the open questions. Do not write the skill until the user agrees with the direction.
+6. **Get sign-off.** Give the recommendation and what it rests on in chat. Share the rest when asked. Do not write the skill until the user agrees with the direction.
 
 7. **Write the skill.** Follow the rulebooks for the content it contains, keep project names out of anything meant for every repo, and add it to the plugin's index. Rerun the step 4 experiments against the finished skill and put the counts in the PR.
 

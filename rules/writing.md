@@ -1,6 +1,17 @@
 # Writing Rules
 
-These rules apply to docs, PR and issue text, and code comments. They do not apply to strings rendered in a UI. A project's own voice guide for product copy wins wherever the two disagree.
+These rules apply to docs, reports and replies to the user, PR and issue text, and code comments. They do not apply to strings rendered in a UI. A project's own voice guide for product copy wins wherever the two disagree.
+
+## What goes in
+
+**Lead with what the reader needs most.** The answer, the decision asked of the reader, or the main finding comes first. Detail follows in order of importance, so the reader can stop at any point.
+
+**Write the result, not how you got there.** Leave out earlier versions, what changed since the last draft, the steps taken, and the options dropped along the way. A reader who never saw the draft finds nothing missing. History words such as *previously*, *no longer*, and *renamed from* are the usual sign.
+
+> Prefer: "**While the service is down.** A delivery made while it is stopped is held, and arrives when it starts again."
+> Over: "**While the service is down (reworded in v4).** We first wrote 'messages are never lost', but review pointed out that the sender keeps the message, so this now covers delivery."
+
+**Include only what the reader asked for or needs to act.** Everything else waits until they ask.
 
 ## Terminology
 
@@ -34,8 +45,6 @@ These rules apply to docs, PR and issue text, and code comments. They do not app
 **Use the plain word.** *start* not *begin/commence/initiate*, *use* not *utilize/leverage*, *help* not *facilitate*, *make sure* not *ensure*, *before* not *prior to*, *get* not *obtain/acquire*, *show* not *demonstrate*, *also* not *additionally/furthermore/moreover*. Add a pair whenever a fancier word gets past review.
 
 **Cut marketing adjectives.** *seamless*, *robust*, *powerful*, *cutting-edge*, *effortless*, *world-class*, *next-generation*, *revolutionary*.
-
-**Write what is true now.** No history words: *previously*, *no longer*, *used to*, *renamed from*.
 
 ## Verbs
 
@@ -90,11 +99,5 @@ These rules apply to docs, PR and issue text, and code comments. They do not app
 
 > Prefer: "the request goes through the [rate limiter](docs/concepts/limits.md#rate-limiter)."
 > Over: restating what the rate limiter is, then using it.
-
-## Checking
-
-**A word list checks words, a reader checks meaning.** A project may run [Vale](https://vale.sh) over its docs and comments for word choice, history words, nominalizations, throat-clearing, contractions, and semicolons. One name per thing, one meaning per word, literal phrasing, and one topic per paragraph stay with the reader.
-
-**Keep *begin*, *initiate*, *acquire*, and *robust* out of a mechanical gate.** Each has a technical sense a word list cannot tell from the prose one.
 
 Comments follow the same word lists, with the carve-outs in [comments.md](comments.md).

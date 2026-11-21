@@ -10,7 +10,7 @@ Three pieces route:
 
 | When | Read |
 |---|---|
-| Writing any prose: docs, PR text, issues | [writing.md](../rules/writing.md) |
+| Writing any prose: docs, reports and replies to the user, PR text, issues | [writing.md](../rules/writing.md) |
 | Writing text a user reads in an app's UI: labels, buttons, descriptions, empty states, errors | [ui-copy.md](../rules/ui-copy.md) |
 | Opening or editing a PR | [prs.md](../rules/prs.md) |
 | Writing or editing a code comment | [comments.md](../rules/comments.md) |
