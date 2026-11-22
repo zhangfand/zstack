@@ -15,11 +15,11 @@ Then run `/zstack:setup`. It turns on marketplace auto-update and the Codex side
 
 ## Layout
 
-zstack has three layers. The router dispatches, skills document workflows, and rules hold judgments.
+zstack has three layers. The router dispatches, skills document workflows, and rules hold judgments. Beside them, [`working-with-me.md`](working-with-me.md) says how I work, and every session reads it in full.
 
 - [`router/`](router/README.md): what to load for a task.
   - [`README.md`](router/README.md): the table from kind of content to rulebook, and the precedence rule.
-  - [`bootstrap.sh`](router/bootstrap.sh): prints the table into every session. The SessionStart hook in [`hooks/`](hooks/) runs it, and [`scripts/setup-codex.sh`](scripts/setup-codex.sh) writes the same text into the Codex `AGENTS.md`.
+  - [`bootstrap.sh`](router/bootstrap.sh): prints `working-with-me.md` and the table into every session. The SessionStart hook in [`hooks/`](hooks/) runs it, and [`scripts/setup-codex.sh`](scripts/setup-codex.sh) writes the same text into the Codex `AGENTS.md`.
 - [`skills/`](skills/): procedures the agent runs on some tasks. Each one routes itself through its description.
   - `rules`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.
   - `respond-to-review`, `babysit-pr`: drive a PR through review and CI.

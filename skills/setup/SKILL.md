@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Set up zstack on this machine
 
-zstack lives at user level, so every repo gets it and no repo gets a commit. Claude Code gets the plugin, whose SessionStart hook adds the router table and the precedence rule to every session. Codex gets the same text in its global `AGENTS.md`, and the skills linked into `~/.agents/skills`.
+zstack lives at user level, so every repo gets it and no repo gets a commit. Claude Code gets the plugin, whose SessionStart hook adds `working-with-me.md`, the router table and the precedence rule to every session. Codex gets the same text in its global `AGENTS.md`, and the skills linked into `~/.agents/skills`.
 
 ## Steps
 

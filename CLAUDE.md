@@ -6,12 +6,15 @@ A Claude Code plugin in three layers. Everything here must hold in any repo.
 - `skills/` documents workflows: the steps for a task, linking rules for what good output is.
 - `rules/` holds judgments: one rulebook per kind of content, with no steps.
 
+`working-with-me.md` is the person's own account of how they work. The session-start hook prints it in full into every session.
+
 ## Playbook
 
 - Before adding or changing a rulebook, read [`rules/rulebooks.md`](rules/rulebooks.md).
 - Before writing prose here, read [`rules/writing.md`](rules/writing.md).
 - When adding a rulebook, add its row to the table in [`router/README.md`](router/README.md), and its kind of content to the description of [`skills/rules/SKILL.md`](skills/rules/SKILL.md).
 - When a skill states a judgment that holds outside that skill, move it to a rulebook and link it.
+- When adding a line to `working-with-me.md`, check that it holds for every task. A judgment about one kind of content goes in that content's rulebook.
 
 ## Traps
 
