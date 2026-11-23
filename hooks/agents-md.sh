@@ -1,7 +1,7 @@
 #!/bin/sh
-# Keeps a repo's agent instruction files named AGENTS.md. Claude Code reads
-# AGENTS.md only in a folder with no CLAUDE.md, and a CLAUDE.local.md hides it
-# too, so either name beside an AGENTS.md silently drops it.
+# Keeps a repo's agent instruction files named AGENTS.md. Claude Code skips
+# AGENTS.md files when a CLAUDE.md or CLAUDE.local.md takes their place, and one
+# at the repo root hides every nested AGENTS.md too.
 #
 # Usage: agents-md.sh check [dir]   list violations in the repo at dir; exit 1 if any
 #        agents-md.sh session       SessionStart hook: tell the agent about violations
@@ -51,7 +51,7 @@ case "${1:-}" in
     [ -z "$found" ] && exit 0
     echo "## Agent instruction files"
     echo
-    echo "The user keeps agent instructions in AGENTS.md only. This repo has these CLAUDE.md files, which hide any AGENTS.md beside them. Tell the user once, and offer to rename each to AGENTS.md:"
+    echo "The user keeps agent instructions in AGENTS.md only. This repo has these CLAUDE.md files, which can hide every AGENTS.md in the repo. Tell the user once, and offer to rename each to AGENTS.md:"
     echo
     echo "$found" | sed 's/^/- /'
     ;;
@@ -63,7 +63,7 @@ case "${1:-}" in
       *) exit 0 ;;
     esac
     allowed "$path" && exit 0
-    echo "Write agent instructions to AGENTS.md, not $(basename "$path"). Claude Code reads AGENTS.md only in a folder with no CLAUDE.md or CLAUDE.local.md. If this file exists, move it to AGENTS.md first (git mv), or move a personal CLAUDE.local.md into agent memory." >&2
+    echo "Write agent instructions to AGENTS.md, not $(basename "$path"). A CLAUDE.md or CLAUDE.local.md can hide every AGENTS.md in the repo. If this file exists, move it to AGENTS.md first (git mv), or move a personal CLAUDE.local.md into agent memory." >&2
     exit 2
     ;;
   *)

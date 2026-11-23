@@ -6,7 +6,7 @@ The miss this family guards against is bloat. An entry that restates a source of
 
 ## Format
 
-**The file is named `AGENTS.md`, never `CLAUDE.md`.** Claude Code reads an `AGENTS.md` only in a folder with no `CLAUDE.md` and no `CLAUDE.local.md`, so either name beside it silently drops it, and Codex reads only `AGENTS.md`. The one `CLAUDE.md` is the user-level `~/.claude/CLAUDE.md`, which has no `AGENTS.md` alternative, with its copy in a dotfiles repo. The zstack hooks block writing any other, and `sh hooks/agents-md.sh check` lists them in a repo.
+**The file is named `AGENTS.md`, never `CLAUDE.md`.** Claude Code skips `AGENTS.md` files when a `CLAUDE.md` or `CLAUDE.local.md` takes their place: one at the repo root hides every nested `AGENTS.md` too. Codex reads only `AGENTS.md`. The one `CLAUDE.md` is the user-level `~/.claude/CLAUDE.md`, which has no `AGENTS.md` alternative, with its copy in a dotfiles repo. The zstack hooks block writing any other, and `sh hooks/agents-md.sh check` lists them in a repo.
 
 > Prefer: `packages/web/AGENTS.md`, and a personal note in agent memory.
 > Over: `packages/web/CLAUDE.md`, an `AGENTS.md` symlink to a `CLAUDE.md`, or a `CLAUDE.local.md`.
