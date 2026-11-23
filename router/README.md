@@ -19,7 +19,7 @@ Three pieces route:
 | Changing code in a way a later consumer depends on, or reading data another process wrote | [engineering.md](../rules/engineering.md) |
 | Writing or changing a test | [testing.md](../rules/testing.md) |
 | Designing how software we ship gets a credential or secret | [security.md](../rules/security.md) |
-| Writing a `CLAUDE.md` or `AGENTS.md` | [claude-md.md](../rules/claude-md.md) |
+| Writing an `AGENTS.md` or `CLAUDE.md` | [agents-md.md](../rules/agents-md.md) |
 | Writing or editing a skill | [skills.md](../rules/skills.md) |
 | Writing a new rulebook | [rulebooks.md](../rules/rulebooks.md) |
 

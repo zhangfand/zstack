@@ -1,12 +1,17 @@
-# CLAUDE.md Files
+# AGENTS.md Files
 
-A **CLAUDE.md** is a file of repo guidance that its own location loads into agent context. The root file loads on every turn of every session. A nested file loads when the agent works in that directory. This file defines the format of a CLAUDE.md and the bar an entry clears to enter one. It governs `CLAUDE.md` files only, not skills. Prose rules come from [writing.md](writing.md).
+An **AGENTS.md** is a file of repo guidance that its own location loads into agent context. The root file loads on every turn of every session. A nested file loads when the agent works in that directory. This file defines the format of an AGENTS.md and the bar an entry clears to enter one. It governs `AGENTS.md` files only, not skills. Prose rules come from [writing.md](writing.md).
 
-The miss this family guards against is bloat. An entry that restates a source of truth elsewhere spends context on every load and goes stale when that source moves. It takes two shapes here: one rule copied into several files, so a change lands in one and not the others, and a reference doc parked inside a package's CLAUDE.md, where it loads on every turn that touches the package.
+The miss this family guards against is bloat. An entry that restates a source of truth elsewhere spends context on every load and goes stale when that source moves. It takes two shapes here: one rule copied into several files, so a change lands in one and not the others, and a reference doc parked inside a package's AGENTS.md, where it loads on every turn that touches the package.
 
 ## Format
 
-**A CLAUDE.md is titled by what it governs.** It sits at the repo root, or at the root of a directory whose contents share the same guidance. It opens with an H1 naming what it governs: the repo, the package, or the directory path. A topic title fails.
+**The file is named `AGENTS.md`, never `CLAUDE.md`.** Claude Code reads an `AGENTS.md` only in a folder with no `CLAUDE.md` and no `CLAUDE.local.md`, so either name beside it silently drops it, and Codex reads only `AGENTS.md`. The one `CLAUDE.md` is the user-level `~/.claude/CLAUDE.md`, which has no `AGENTS.md` alternative, with its copy in a dotfiles repo. The zstack hooks block writing any other, and `sh hooks/agents-md.sh check` lists them in a repo.
+
+> Prefer: `packages/web/AGENTS.md`, and a personal note in agent memory.
+> Over: `packages/web/CLAUDE.md`, an `AGENTS.md` symlink to a `CLAUDE.md`, or a `CLAUDE.local.md`.
+
+**An AGENTS.md is titled by what it governs.** It sits at the repo root, or at the root of a directory whose contents share the same guidance. It opens with an H1 naming what it governs: the repo, the package, or the directory path. A topic title fails.
 
 > Prefer: `# web`, `# docs/ui/`.
 > Over: `# Design System`, `# Documentation Rules`.
@@ -68,7 +73,7 @@ The miss this family guards against is bloat. An entry that restates a source of
 **Scope: it applies to only some of the work.** A procedure that runs on some tasks becomes a skill, and reference material becomes a doc under `docs/`. The file keeps a `Playbook` entry naming the trigger.
 
 > Prefer: "Before building or editing a plugin, read `plugins/authoring/SKILL.md`."
-> Over: the create and scaffold steps written out in `plugins/CLAUDE.md`.
+> Over: the create and scaffold steps written out in `plugins/AGENTS.md`.
 
 **A playbook entry must change the next move.** It enters when the agent, meeting the condition, would otherwise take a different action.
 
@@ -108,5 +113,5 @@ The miss this family guards against is bloat. An entry that restates a source of
 
 **An entry lands in the file closest to the code it governs.**
 
-> Prefer: a rule about `packages/ui` landing in `packages/ui/CLAUDE.md`.
+> Prefer: a rule about `packages/ui` landing in `packages/ui/AGENTS.md`.
 > Over: the same rule landing in the root file.

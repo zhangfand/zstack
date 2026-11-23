@@ -1,6 +1,6 @@
 # zstack
 
-A personal development flow for working with coding agents: the rules and skills that hold in any repo. Project-specific rules stay in each project's own `CLAUDE.md` and `docs/`.
+A personal development flow for working with coding agents: the rules and skills that hold in any repo. Project-specific rules stay in each project's own `AGENTS.md` and `docs/`.
 
 ## Install
 
@@ -20,6 +20,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
 - [`router/`](router/README.md): what to load for a task.
   - [`README.md`](router/README.md): the table from kind of content to rulebook, and the precedence rule.
   - [`bootstrap.sh`](router/bootstrap.sh): prints `working-with-me.md` and the table into every session. The SessionStart hook in [`hooks/`](hooks/) runs it, and [`scripts/setup-codex.sh`](scripts/setup-codex.sh) writes the same text into the Codex `AGENTS.md`.
+- [`hooks/agents-md.sh`](hooks/agents-md.sh): keeps agent instruction files named `AGENTS.md`. It lists a repo's `CLAUDE.md` files at session start and blocks the agent from writing one.
 - [`skills/`](skills/): procedures the agent runs on some tasks. Each one routes itself through its description.
   - `rules`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.
   - `respond-to-review`, `babysit-pr`: drive a PR through review and CI.
@@ -34,7 +35,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
   - [`engineering.md`](rules/engineering.md): traps that pass every gate.
   - [`abstraction.md`](rules/abstraction.md): designing one interface, at any scale.
   - [`architecture.md`](rules/architecture.md): how components own decisions, depend on, and talk to each other.
-  - [`claude-md.md`](rules/claude-md.md): the format of `CLAUDE.md` files and what to keep in them.
+  - [`agents-md.md`](rules/agents-md.md): the format of `AGENTS.md` files and what to keep in them.
   - [`skills.md`](rules/skills.md): the format of skills and what to keep in them.
   - [`rulebooks.md`](rules/rulebooks.md): how to write a new rulebook.
 
@@ -47,5 +48,6 @@ zstack is installed per machine, never per repo, so it works in repos you do not
 | Any repo | Nothing. zstack applies. |
 | The repo has its own `CLAUDE.md`, `AGENTS.md`, or rulebooks | Nothing. The repo wins where the two disagree, and its rulebook is read first. |
 | zstack clashes with a repo | Set `"enabledPlugins": {"zstack@zstack": false}` in that repo's `.claude/settings.local.json`. |
-| You want a personal note for one repo | Leave it to the agent's memory. If it has to be an instruction, use `CLAUDE.local.md` hidden through `.git/info/exclude`, and only where the repo has a `CLAUDE.md`, because a `CLAUDE.local.md` stops Claude Code from reading `AGENTS.md`. |
+| You want a personal note for one repo | Leave it to the agent's memory. A `CLAUDE.local.md` stops Claude Code from reading `AGENTS.md`. |
+| You want to find `CLAUDE.md` files in a repo | Run `sh <zstack root>/hooks/agents-md.sh check`. Every session also lists them at start, and the agent cannot write a new one. |
 | A cloud environment | Put step 1 of `/zstack:setup` in the environment's setup script. Cloud sessions do not load the plugins on your machine. |

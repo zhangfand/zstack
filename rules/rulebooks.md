@@ -4,7 +4,7 @@ A **rulebook** says what good output looks like for one kind of content: a PR, a
 
 ## When to write one
 
-**Write a rulebook for a repeated miss.** Agents keep getting one kind of content wrong in the same way, and one line in a `CLAUDE.md` does not fix it. The opening paragraph names that miss.
+**Write a rulebook for a repeated miss.** Agents keep getting one kind of content wrong in the same way, and one line in an `AGENTS.md` does not fix it. The opening paragraph names that miss.
 
 ## Writing a rule
 

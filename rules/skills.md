@@ -1,6 +1,6 @@
 # Skills
 
-Prose rules come from [writing.md](writing.md), and CLAUDE.md files follow [claude-md.md](claude-md.md).
+Prose rules come from [writing.md](writing.md), and AGENTS.md files follow [agents-md.md](agents-md.md).
 
 The miss this family guards against is over-prescription. A skill that scripts every command and every question spends context on steps the agent takes anyway. A fixed step order also drops or reorders steps that the agent would otherwise get right. The agent follows the script past the point where a better path was available.
 

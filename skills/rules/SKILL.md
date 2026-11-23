@@ -1,6 +1,6 @@
 ---
 name: rules
-description: Read the zstack rulebook for what you are about to write or design. Use before writing a PR, a comment, a CLAUDE.md, a skill, UI copy, or other prose, and before designing an interface or a component boundary, writing a test, or changing code that others depend on.
+description: Read the zstack rulebook for what you are about to write or design. Use before writing a PR, a comment, an AGENTS.md, a skill, UI copy, or other prose, and before designing an interface or a component boundary, writing a test, or changing code that others depend on.
 ---
 
 # zstack rules
