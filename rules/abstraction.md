@@ -28,9 +28,14 @@ An abstraction is a simplified view of one part: it hides a decision and shows o
 
 **A method's semantics are part of the API, not only its signature.** A caller relies on what the method guarantees: its effect, whether a retry is safe, and what is true when it fails. Name the method for that guarantee. A change to a guarantee breaks callers even when every type stays the same.
 
-**A guarantee that a type can state goes in the type.** A type is checked on every call, and a comment or a runtime check is not. Shape the types so that a value the abstraction would reject cannot be built.
+**Make illegal states unrepresentable.** A type is checked on every call, and a comment or a runtime check is not. Shape the types so that a value the abstraction would reject cannot be built. Optional fields that only make sense together allow combinations nobody meant, so model each valid case as its own member of a union.
 
 > Prefer: `type Order = { status: "draft" } | { status: "submitted"; submittedAt: Date }`.
 > Over: `{ status: string; submittedAt?: Date }` with a comment that `submittedAt` is set once the order is submitted.
+
+**Parse, don't validate.** Turn input, once and at the edge, into a type that cannot hold a bad value, and pass that type inward. Code past the edge never checks the raw input again. The parser rejects anything some consumer cannot handle faithfully, including field combinations that are each valid alone. Every entry point calls the same parser before it stores or acts on anything.
+
+> Prefer: `parseSchedule(body): Schedule` at the route, and `runJob(schedule: Schedule)` below it.
+> Over: `runJob(body)` that checks `if (body.cron && body.at)` in three places.
 
 **Events are part of the API.** An event states a fact the abstraction decided, in its own vocabulary, and carries the same compatibility promise as a method: add fields, and never rename or remove them.
