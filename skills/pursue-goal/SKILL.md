@@ -8,7 +8,7 @@ description: Use when the user gives a goal that does not translate into a speci
 Goal end-state: every rule in the rule set the person approved passes on a committed version of the product, and the trajectory shows each evaluation that led there.
 
 - The **product** is what the goal asks for.
-- The **verifier** is a program that scores the product pass or fail on each rule.
+- The **verifier** is a program that scores the product pass or fail on every rule a program can decide.
 - The **environment** is everything the product and the verifier need to run without the person.
 - A **builder** is a subagent that builds one of those three.
 - The **trajectory** is the record of how the results change, one entry per iteration of the loop.
@@ -23,6 +23,8 @@ The person agrees to the rules before the phases, and to the phases before any b
 ## Rules
 
 **Each rule is pass or fail and names its check.** Where judgment would decide the result, the rule carries a number, such as "reports 8 of 10 seeded issues within 24 hours".
+
+**Each rule names who scores it: the verifier, an agent, or the person.** Prefer the verifier over an agent, and an agent over the person.
 
 **A check finishes in minutes.** When a rule names a span of time, such as a timeout, a retry window, or an hour offline, the check advances a clock the product lets it set, per [testing.md](../../rules/testing.md), instead of waiting the span out. A part that only real time can prove becomes a scheduled check, and the rule names that part.
 
@@ -76,16 +78,22 @@ If the person has not said which model the builders run on, ask.
 
 ## State
 
-Keep the plan, the phases, the decisions made, the planner's notes, and what waits on the person outside the conversation, in the tracker the person uses or in files. The rule set stays the only source of the rules.
+Keep the plan, the phases, the decisions made, the planner's notes, and what waits on the person outside the conversation, in the tracker the person uses or in files.
+
+**The rule set has one home, and it stays the only source of the rules.** When the person's instructions say where they keep their goals and in what form, the rule set is written there in that form. Otherwise it is a file.
+
+**A result goes in the trajectory, never into the rule set.**
 
 ## Loop
 
 1. A builder commits a version.
-2. The verifier scores it in the environment.
+2. The verifier scores it in the environment, and an agent scores each rule that names one.
 3. The planner adds the entry to the trajectory and tags each failure with where the fault lies: the product, the verifier, the environment, or the rule.
 4. The planner sends each fix to the builder that owns the fault. A fault in a rule goes to the person.
 
 **A scheduled check runs on its own timer, never in the loop.** It scores the newest committed version, and the trajectory carries its latest result and the commit it ran on.
+
+**When every rule that the verifier or an agent scores has passed, the planner tells the person once what is left for them to score.**
 
 A phase is done when all of its rules pass, and each of its scheduled checks has passed on that commit or a later one. Every later run still checks the rules of the finished phases.
 
