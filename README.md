@@ -19,7 +19,7 @@ zstack has three layers. The router dispatches, skills document workflows, and r
 
 - [`router/`](router/README.md): what to load for a task.
   - [`README.md`](router/README.md): the table from kind of content to rulebook, and the precedence rule.
-  - [`bootstrap.sh`](router/bootstrap.sh): prints `working-with-me.md` and the table into every session. The SessionStart hook in [`hooks/`](hooks/) runs it, and [`scripts/setup-codex.sh`](scripts/setup-codex.sh) writes the same text into the Codex `AGENTS.md`.
+  - [`bootstrap.sh`](router/bootstrap.sh): prints `working-with-me.md`, the rules for cutting work into PRs, and the table into every session. The SessionStart hook in [`hooks/`](hooks/) runs it, and [`scripts/setup-codex.sh`](scripts/setup-codex.sh) writes the same text into the Codex `AGENTS.md`.
 - [`hooks/agents-md.sh`](hooks/agents-md.sh): keeps agent instruction files named `AGENTS.md`. It lists a repo's `CLAUDE.md` files at session start and blocks the agent from writing one.
 - [`skills/`](skills/): procedures the agent runs on some tasks. Each one routes itself through its description.
   - `rules`: load the matching rulebook before writing. It is the router's entry point for a session that missed the bootstrap text.

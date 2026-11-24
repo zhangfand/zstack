@@ -2,6 +2,14 @@
 
 The diff already carries what changed and where. A PR description carries only what the diff cannot: why the change exists, the rules it must keep, and how it was proven. Prose follows [writing.md](writing.md).
 
+## Cutting
+
+**A PR either refactors or changes behavior, never both.**
+
+**Try to keep a PR under 400 changed lines.**
+
+**Each PR can merge by itself and leaves main working.**
+
 ## Title
 
 **The title is a Conventional Commit.** It takes the form `<type>[(<scope>)][!]: <subject>`, with a lower-case type and scope. Allowed types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`. Squash-and-merge makes the title the commit subject on the default branch.

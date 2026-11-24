@@ -4,7 +4,7 @@ The router decides what an agent loads for the task in front of it. It holds no 
 
 Three pieces route:
 
-- This table. [bootstrap.sh](bootstrap.sh) prints it into every session, after [working-with-me.md](../working-with-me.md), so the agent reads the matching rulebook even for content written in the middle of another task, such as a code comment inside a code change.
+- This table. [bootstrap.sh](bootstrap.sh) prints it into every session, after [working-with-me.md](../working-with-me.md), so the agent reads the matching rulebook even for content written in the middle of another task, such as a code comment inside a code change. Before the table it prints the Cutting section of [prs.md](../rules/prs.md) in full, because those rules shape the work from the first edit, and the row for a PR is reached only once the diff is written.
 - The `rules` skill, which carries the same pointer for a session that missed the bootstrap text.
 - Each skill's own `description`, which the agent matches against the task. Skills need no row here.
 

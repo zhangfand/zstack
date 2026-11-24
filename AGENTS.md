@@ -6,7 +6,7 @@ A Claude Code plugin in three layers. Everything here must hold in any repo.
 - `skills/` documents workflows: the steps for a task, linking rules for what good output is.
 - `rules/` holds judgments: one rulebook per kind of content, with no steps.
 
-`working-with-me.md` is the person's own account of how they work. The session-start hook prints it in full into every session.
+`working-with-me.md` is the person's own account of how they work. The session-start hook prints it in full into every session, followed by the Cutting section of [`rules/prs.md`](rules/prs.md) and the router's table.
 
 ## Playbook
 

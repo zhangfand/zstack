@@ -4,8 +4,15 @@
 # Usage: bootstrap.sh [zstack root], defaulting to $CLAUDE_PLUGIN_ROOT.
 set -eu
 root="${1:-${CLAUDE_PLUGIN_ROOT:-}}"
-if [ -z "$root" ] || [ ! -f "$root/router/README.md" ] || [ ! -f "$root/working-with-me.md" ]; then
+if [ -z "$root" ] || [ ! -f "$root/router/README.md" ] || [ ! -f "$root/working-with-me.md" ] || [ ! -f "$root/rules/prs.md" ]; then
   echo "bootstrap.sh: pass the zstack root, or set CLAUDE_PLUGIN_ROOT" >&2
+  exit 1
+fi
+# The rules for cutting work into PRs are printed in full, not only linked: an
+# agent that reads them when it opens the PR has already written the diff.
+cutting=$(awk '/^## /{on = ($0 == "## Cutting")} on && !/^## /' "$root/rules/prs.md" | sed '/./,$!d')
+if [ -z "$cutting" ]; then
+  echo "bootstrap.sh: rules/prs.md has no Cutting section" >&2
   exit 1
 fi
 
@@ -21,6 +28,15 @@ The user wrote these lines about how they work, so "I" is the user. They hold fo
 TEXT
 # The lines come from working-with-me.md, so this text never drifts from it.
 sed -n '/^- /,$p' "$root/working-with-me.md"
+cat <<TEXT
+
+## Cutting work into PRs
+
+These rules apply from the first edit.
+
+TEXT
+# The rules come from rules/prs.md, so this text never drifts from it.
+printf '%s\n' "$cutting"
 cat <<TEXT
 
 ## Rulebooks
