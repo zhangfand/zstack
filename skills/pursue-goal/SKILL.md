@@ -53,7 +53,15 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 ## Design
 
-**The design the person agreed to lives in one GitHub issue.** The planner writes it there before a builder starts, in three parts: Why, Design, Not in this change. The design is numbered lines, and it holds only lines the person accepted.
+**The design the person agreed to lives in one GitHub issue.** The planner writes it there before a builder starts, in four parts: Why, Design, Sketch, Not in this change. The design is numbered lines, and it holds only lines the person accepted.
+
+**A line opens with one bold sentence that states the decision.** The bold sentences alone give the whole design.
+
+**Lines are grouped under headings that name what they decide about.**
+
+**The sketch follows one case through the design, step by step.** Each step names the lines it rests on.
+
+**A line states a decision that changes something.** What stays as it is goes under Not in this change.
 
 **A change of course goes into the issue first.** The planner shows the person the changed line, and changes the issue when they confirm.
 
