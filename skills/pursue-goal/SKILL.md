@@ -57,7 +57,7 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **A change of course goes into the issue first.** The planner shows the person the changed line, and changes the issue when they confirm.
 
-**A line's number is never used again.** A removed line's number stays unused, and a new line takes the next one. Write the number as text, such as `D3`, because a Markdown list renumbers itself.
+**A line keeps its number, and a number is never used again.** A line that changes or moves keeps its number, a removed line's number stays unused, and a new line takes the next one. Write the number as text, such as `D3`, because a Markdown list renumbers itself.
 
 ## Environment
 
