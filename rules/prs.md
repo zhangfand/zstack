@@ -1,6 +1,6 @@
 # Pull Requests
 
-The diff already carries what changed and where. A PR description carries only what the diff cannot: why the change exists, the rules it must keep, and how it was proven. Prose follows [writing.md](writing.md).
+The diff already carries what changed and where. A PR description carries only what the diff cannot: why the change exists, its shape at a glance, and how it was proven. Prose follows [writing.md](writing.md).
 
 ## Cutting
 
@@ -21,16 +21,15 @@ The diff already carries what changed and where. A PR description carries only w
 
 ## Body
 
-**The body runs to 30 lines or fewer, screenshots excluded.** A section with nothing to say is left out, never filled with a placeholder.
+**The body runs to 30 lines or fewer, screenshots excluded.** Use these sections in this order. A section with nothing to say is left out, never filled with a placeholder.
 
 | Section | When | Budget |
 |---|---|---|
 | Why | Always | 1–3 sentences |
-| Changes | Only when the diff does not make the shape obvious | 5 bullets |
-| Invariants | Only when the PR adds or changes a product rule | 3 bullets |
-| Tradeoffs | Only when a real alternative existed | 2 lines |
-| Verification | Always | One line per behavior |
-| Not in this PR | When the PR defers something | One line each |
+| Sketch | Always | One small block, about 10 lines |
+| Scope | Always | Up to 3 bullets |
+| Merge danger | Always | 1–2 lines |
+| Evidence | Always | Up to 3 bullets |
 
 ### Why
 
@@ -39,28 +38,32 @@ The diff already carries what changed and where. A PR description carries only w
 > Prefer: "A crash mid-install left the app half-registered, because two paths could write the lockfile."
 > Over: "Adds `installLock` to `AppManager`, updates `install.ts`, adds a test."
 
-### Invariants
+### Sketch
 
-**State each invariant as behavior a reader can check in the product.** An invariant names no file, function, type, or field. A `refactor:` PR is the exception: its contract is the code structure, so it names the modules it moves.
+**Show the shape of the change as a picture.** Use a `diff` of an API, a call tree, a component tree, or a file tree, and keep only the parts that carry the change. A `refactor:` PR uses the sketch as its contract, since its contract is the code structure.
 
-> Prefer: "Removing one bot never cuts the user off from the others."
-> Over: "Teardown deletes `channel_mappings` only when `connectionsHoldingIn()` is empty."
+```diff
+ AgentSession
+-  sendTurn(input)
+-  submitInput(input, onTurn)
++  submit(input, { priority: now | next | after })
+```
 
-### Tradeoffs
+### Scope
 
-**Name the alternative and what ruled it out.** The code keeps no record of a rejected design.
+**Say what the PR covers and what it leaves out.** One bullet per deferral, with a one-clause reason or pointer. When a real alternative existed, one bullet names it and what ruled it out, since the code keeps no record of a rejected design.
 
-### Verification
+### Merge danger
 
-**List the behaviors the PR proves, each as a scenario and its outcome.** It is a checklist: `[x]` for verified, `[ ]` for what remains. Mark an item "fails without the change" when it does.
+**Say whether a revert undoes the change, and what it touches.** A migration, a deleted record, or a published API is a one-way door. Name the blast radius and why it is safe.
 
-> Prefer: "- [x] Two bots, remove one: the user still reaches the app through the other. Fails without the change."
-> Over: "- [x] New cases in `connections.test.ts`."
+### Evidence
+
+**List the behaviors the PR proves, each as a scenario and its outcome.** Mark an item "fails without the change" when it does.
+
+> Prefer: "- Two bots, remove one: the user still reaches the app through the other. Fails without the change."
+> Over: "- New cases in `connections.test.ts`."
 
 **Leave out what CI checks on every PR.** List a CI job only when the PR changes what it checks.
 
 **When a user would see the change, show it.** Paste one phone screenshot (390×844) and one desktop screenshot (1280×900). Never commit them.
-
-### Not in this PR
-
-**One line per deferral.** Name the deferred thing and give a one-clause reason or pointer.
