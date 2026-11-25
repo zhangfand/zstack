@@ -57,6 +57,8 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **A change of course goes into the issue first.** The planner shows the person the changed line, and changes the issue when they confirm.
 
+**A line keeps its number, and a number is never used again.** A line that changes or moves keeps its number, a removed line's number stays unused, and a new line takes the next one. Write the number as text, such as `D3`, because a Markdown list renumbers itself.
+
 ## Environment
 
 **List what the planner needs to build and evaluate without the person.** For each requirement, say whether it exists, partly exists, or is missing, and who supplies it.
@@ -81,7 +83,7 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **A builder takes the design only from the issue.** The brief links the issue and does not retell the design.
 
-**Each pull request names the lines it delivers.** It says "Part of #123, lines 1 and 2", and the last one says "Closes #123".
+**Each pull request names the lines it delivers.** It says "Part of #123, D1 and D2", and the last one says "Closes #123".
 
 **No builder merges without the person.**
 
