@@ -11,6 +11,7 @@ Goal end-state: every rule in the rule set the person approved passes on a commi
 - The **verifier** is a program that scores the product pass or fail on every rule a program can decide.
 - The **environment** is everything the product and the verifier need to run without the person.
 - A **builder** is a subagent that builds one of those three.
+- The **design** is what the person decided about how the product is built, such as which part owns what.
 - The **trajectory** is the record of how the results change, one entry per iteration of the loop.
 - The **planner** is the agent that runs this skill.
 
@@ -18,7 +19,7 @@ The planner owns the rules, the plan, and the trajectory, and directs the builde
 
 The person agrees to the rules before the phases, and to the phases before any builder starts.
 
-**Bring the person the rules and the phases, and nothing else.** Everything else the planner finds or plans goes in its notes. The one exception is the ask for what only the person can supply.
+**Bring the person the rules, the phases and the lines of the design, and nothing else.** Everything else the planner finds or plans goes in its notes. The one exception is the ask for what only the person can supply.
 
 ## Rules
 
@@ -50,6 +51,12 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **Each phase lists the rules it meets, and every rule belongs to one phase.**
 
+## Design
+
+**The design the person agreed to lives in one GitHub issue.** The planner writes it there before a builder starts, in three parts: Why, Design, Not in this change. The design is numbered lines, and it holds only lines the person accepted.
+
+**A change of course goes into the issue first.** The planner shows the person the changed line, and changes the issue when they confirm.
+
 ## Environment
 
 **List what the planner needs to build and evaluate without the person.** For each requirement, say whether it exists, partly exists, or is missing, and who supplies it.
@@ -70,7 +77,11 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **The verifier proves itself against a stand-in product.** It does not wait for the product or the environment.
 
-**A brief is one file a builder can act on with nothing else open.** It holds the goal, the owned folder, what the builder must not touch, and each rule it serves with the exact pass bar and check as plain text.
+**A brief is one file a builder can act on with nothing else open but the design's issue.** It holds the goal, the owned folder, what the builder must not touch, and each rule it serves with the exact pass bar and check as plain text.
+
+**A builder takes the design only from the issue.** The brief links the issue and does not retell the design.
+
+**Each pull request names the lines it delivers.** It says "Part of #123, lines 1 and 2", and the last one says "Closes #123".
 
 **No builder merges without the person.**
 
