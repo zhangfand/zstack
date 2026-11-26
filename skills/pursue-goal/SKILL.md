@@ -57,6 +57,8 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **A line opens with one bold sentence that states the decision.** The bold sentences alone give the whole design.
 
+**After the bold sentence, a line gives one example of the decision on a real case.** A line holds at most one more sentence.
+
 **Lines are grouped under headings that name what they decide about.**
 
 **The sketch follows one case through the design, step by step.** Each step names the lines it rests on.
