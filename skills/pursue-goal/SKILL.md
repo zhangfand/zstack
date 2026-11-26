@@ -65,6 +65,8 @@ If the scope is too large to meet every rule in one pass, split the work into ph
 
 **A line states a decision that changes something.** What stays as it is goes under Not in this change.
 
+**Before a builder starts, a subagent that has only the issue says what it would build for each line.** The planner rewrites each line it read differently, and shows the person the rewritten line.
+
 **A change of course goes into the issue first.** The planner shows the person the changed line, and changes the issue when they confirm.
 
 **A line keeps its number, and a number is never used again.** A line that changes or moves keeps its number, a removed line's number stays unused, and a new line takes the next one. Write the number as text, such as `D3`, because a Markdown list renumbers itself.
