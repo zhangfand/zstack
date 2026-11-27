@@ -6,7 +6,7 @@ The diff already carries what changed and where. A PR description carries only w
 
 **A PR either refactors or changes behavior, never both.**
 
-**Try to keep a PR under 400 changed lines.**
+**Try to keep a PR under 400 changed lines.** Small PRs let bots and people review every new line, and keep us from adding code too fast. A PR that only deletes a deprecated feature may be larger, because it adds no new code to review.
 
 **Each PR can merge by itself and leaves main working.**
 
