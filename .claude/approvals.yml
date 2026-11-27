@@ -1,0 +1,13 @@
+version: 1
+mode: observe
+rules:
+  - purpose: "A change needs one person. When Claude's review passes, Claude approves and no person is needed."
+    paths: ["**"]
+    verdict: { claude: comments, seats: 1 }
+    advisory: [claude/code_review]
+    override:
+      - { if: "claude/code_review = pass", verdict: { claude: approves, seats: 0 } }
+  - purpose: "A change to agent instructions, review rules or CI always needs one person."
+    paths: ["**/.claude/**", "**/.github/**", "**/AGENTS.md", "**/CLAUDE.md"]
+    nested: inherit
+    verdict: { claude: comments, seats: 1 }
